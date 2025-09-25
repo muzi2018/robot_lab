@@ -1,0 +1,50 @@
+--- git status ---
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   logs/rsl_rl/unitree_h1_flat/2025-09-24_17-44-47/exported/policy.pt
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/flat_env_cfg.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/rsl_rl/openloong_loong_flat/
+	logs/rsl_rl/unitree_g1_flat/
+	outputs/2025-09-24/22-15-15/
+	outputs/2025-09-24/22-49-33/
+	outputs/2025-09-24/23-17-53/
+	outputs/2025-09-24/23-35-24/
+	source/robot_lab/data/Robots/openloong/loong_description/usd/
+	source/robot_lab/robot_lab/assets/__pycache__/openloong.cpython-310.pyc
+	source/robot_lab/robot_lab/assets/urdf0924.py
+	source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/__pycache__/flat_env_cfg.cpython-310.pyc
+	source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/__pycache__/rough_env_cfg.cpython-310.pyc
+	source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc
+	source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/__pycache__/flat_env_cfg.cpython-310.pyc
+	source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/__pycache__/rough_env_cfg.cpython-310.pyc
+	source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/logs/rsl_rl/unitree_h1_flat/2025-09-24_17-44-47/exported/policy.pt b/logs/rsl_rl/unitree_h1_flat/2025-09-24_17-44-47/exported/policy.pt
+index da6dc4f..0cdab4b 100644
+Binary files a/logs/rsl_rl/unitree_h1_flat/2025-09-24_17-44-47/exported/policy.pt and b/logs/rsl_rl/unitree_h1_flat/2025-09-24_17-44-47/exported/policy.pt differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/flat_env_cfg.py b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/flat_env_cfg.py
+index 796b361..6f03da7 100644
+--- a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/flat_env_cfg.py
++++ b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/flat_env_cfg.py
+@@ -29,8 +29,8 @@ class UnitreeG1FlatEnvCfg(UnitreeG1RoughEnvCfg):
+         self.rewards.lin_vel_z_l2.weight = -0.2
+         self.rewards.action_rate_l2.weight = -0.005
+         self.rewards.joint_acc_l2.weight = -1.0e-7
+-        self.rewards.feet_air_time_biped.weight = 0.75
+-        self.rewards.feet_air_time_biped.params["threshold"] = 0.4
++        self.rewards.feet_air_time.weight = 0.75
++        self.rewards.feet_air_time.params["threshold"] = 0.4
+         self.rewards.joint_torques_l2.weight = -2.0e-6
+         self.rewards.joint_torques_l2.params["asset_cfg"].joint_names = [".*_hip_.*", ".*_knee_joint"]
+ 

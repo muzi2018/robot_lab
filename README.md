@@ -14,31 +14,31 @@
 
 The table below lists all available environments:
 
-| Category   | Robot Model         | Environment Name (ID)                                      | Screenshot |
-|------------|---------------------|------------------------------------------------------------|------------|
-| **Quadruped** | [Anymal D](https://www.anybotics.com/robotics/anymal) | RobotLab-Isaac-Velocity-Rough-Anymal-D-v0 | <img src="./docs/imgs/anymal_d.png" alt="anymal_d" width="75"> |
-|            | [Unitree Go2](https://www.unitree.com/go2) | RobotLab-Isaac-Velocity-Rough-Unitree-Go2-v0 | <img src="./docs/imgs/unitree_go2.png" alt="unitree_go2" width="75"> |
-|            | [Unitree B2](https://www.unitree.com/b2) | RobotLab-Isaac-Velocity-Rough-Unitree-B2-v0 | <img src="./docs/imgs/unitree_b2.png" alt="unitree_b2" width="75"> |
-|            | [Unitree A1](https://www.unitree.com/a1) | RobotLab-Isaac-Velocity-Rough-Unitree-A1-v0 | <img src="./docs/imgs/unitree_a1.png" alt="unitree_a1" width="75"> |
-|            | [Deeprobotics Lite3](https://www.deeprobotics.cn/robot/index/product1.html) | RobotLab-Isaac-Velocity-Rough-Deeprobotics-Lite3-v0 | <img src="./docs/imgs/deeprobotics_lite3.png" alt="Lite3" width="75"> |
-|            | [Zsibot ZSL1](https://www.zsibot.com/zsl1) | RobotLab-Isaac-Velocity-Rough-Zsibot-ZSL1-v0 | <img src="./docs/imgs/zsibot_zsl1.png" alt="zsibot_zsl1" width="75"> |
-|            | [Magiclab MagicDog](https://www.magiclab.top/dog) | RobotLab-Isaac-Velocity-Rough-MagicLab-Dog-v0 | <img src="./docs/imgs/magiclab_magicdog.png" alt="magiclab_magicdog" width="75"> |
-| **Wheeled** | [Unitree Go2W](https://www.unitree.com/go2-w) | RobotLab-Isaac-Velocity-Rough-Unitree-Go2W-v0 | <img src="./docs/imgs/unitree_go2w.png" alt="unitree_go2w" width="75"> |
-|            | [Unitree B2W](https://www.unitree.com/b2-w) | RobotLab-Isaac-Velocity-Rough-Unitree-B2W-v0 | <img src="./docs/imgs/unitree_b2w.png" alt="unitree_b2w" width="75"> |
-|            | [Deeprobotics M20](https://www.deeprobotics.cn/robot/index/lynx.html) | RobotLab-Isaac-Velocity-Rough-Deeprobotics-M20-v0 | <img src="./docs/imgs/deeprobotics_m20.png" alt="deeprobotics_m20" width="75"> |
-|            | [DDTRobot Tita](https://directdrive.com/product_TITA) | RobotLab-Isaac-Velocity-Rough-DDTRobot-Tita-v0 | <img src="./docs/imgs/ddtrobot_tita.png" alt="ddtrobot_tita" width="75"> |
-|            | [Zsibot ZSL1W](https://www.zsibot.com/zsl1) | RobotLab-Isaac-Velocity-Rough-Zsibot-ZSL1W-v0 | <img src="./docs/imgs/zsibot_zsl1w.png" alt="zsibot_zsl1w" width="75"> |
-|            | [Magiclab MagicDog-W](https://www.magiclab.top/dog-w) | RobotLab-Isaac-Velocity-Rough-MagicLab-Dog-W-v0 | <img src="./docs/imgs/magiclab_magicdog_w.png" alt="magiclab_magicdog_w" width="75"> |
-| **Humanoid** | [Unitree G1](https://www.unitree.com/g1) | RobotLab-Isaac-Velocity-Rough-Unitree-G1-v0 | <img src="./docs/imgs/unitree_g1.png" alt="unitree_g1" width="75"> |
-|             | [Unitree H1](https://www.unitree.com/h1) | RobotLab-Isaac-Velocity-Rough-Unitree-H1-v0 | <img src="./docs/imgs/unitree_h1.png" alt="unitree_h1" width="75"> |
-|             | [FFTAI GR1T1](https://www.fftai.com/products-gr1) | RobotLab-Isaac-Velocity-Rough-FFTAI-GR1T1-v0 | <img src="./docs/imgs/fftai_gr1t1.png" alt="fftai_gr1t1" width="75"> |
-|             | [FFTAI GR1T2](https://www.fftai.com/products-gr1) | RobotLab-Isaac-Velocity-Rough-FFTAI-GR1T2-v0 | <img src="./docs/imgs/fftai_gr1t2.png" alt="fftai_gr1t2" width="75"> |
-|             | [Booster T1](https://www.boosterobotics.com/) | RobotLab-Isaac-Velocity-Rough-Booster-T1-v0 | <img src="./docs/imgs/booster_t1.png" alt="booster_t1" width="75"> |
-|             | [RobotEra Xbot](https://www.robotera.com/) | RobotLab-Isaac-Velocity-Rough-RobotEra-Xbot-v0 | <img src="./docs/imgs/robotera_xbot.png" alt="robotera_xbot" width="75"> |
-|             | [Openloong Loong](https://www.openloong.net/) | RobotLab-Isaac-Velocity-Rough-Openloong-Loong-v0 | <img src="./docs/imgs/openloong_loong.png" alt="openloong_loong" width="75"> |
-|             | [RoboParty ATOM01](https://roboparty.cn/) | RobotLab-Isaac-Velocity-Rough-RoboParty-ATOM01-v0 | <img src="./docs/imgs/roboparty_atom01.png" alt="roboparty_atom01" width="75"> |
-|             | [Magiclab MagicBot-Gen1](https://www.magiclab.top/human) | RobotLab-Isaac-Velocity-Rough-MagicLab-Bot-Gen1-v0 | <img src="./docs/imgs/magiclab_magicbot_gen1.png" alt="magiclab_magicbot_gen1" width="75"> |
-|             | [Magiclab MagicBot-Z1](https://www.magiclab.top/z1) | RobotLab-Isaac-Velocity-Rough-MagicLab-Bot-Z1-v0 | <img src="./docs/imgs/magiclab_magicbot_z1.png" alt="magiclab_magicbot_z1" width="75"> |
+| Category            | Robot Model                                                              | Environment Name (ID)                               | Screenshot                                                                                     |
+| ------------------- | ------------------------------------------------------------------------ | --------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| **Quadruped** | [Anymal D](https://www.anybotics.com/robotics/anymal)                       | RobotLab-Isaac-Velocity-Rough-Anymal-D-v0           | `<img src="./docs/imgs/anymal_d.png" alt="anymal_d" width="75">`                             |
+|                     | [Unitree Go2](https://www.unitree.com/go2)                                  | RobotLab-Isaac-Velocity-Rough-Unitree-Go2-v0        | `<img src="./docs/imgs/unitree_go2.png" alt="unitree_go2" width="75">`                       |
+|                     | [Unitree B2](https://www.unitree.com/b2)                                    | RobotLab-Isaac-Velocity-Rough-Unitree-B2-v0         | `<img src="./docs/imgs/unitree_b2.png" alt="unitree_b2" width="75">`                         |
+|                     | [Unitree A1](https://www.unitree.com/a1)                                    | RobotLab-Isaac-Velocity-Rough-Unitree-A1-v0         | `<img src="./docs/imgs/unitree_a1.png" alt="unitree_a1" width="75">`                         |
+|                     | [Deeprobotics Lite3](https://www.deeprobotics.cn/robot/index/product1.html) | RobotLab-Isaac-Velocity-Rough-Deeprobotics-Lite3-v0 | `<img src="./docs/imgs/deeprobotics_lite3.png" alt="Lite3" width="75">`                      |
+|                     | [Zsibot ZSL1](https://www.zsibot.com/zsl1)                                  | RobotLab-Isaac-Velocity-Rough-Zsibot-ZSL1-v0        | `<img src="./docs/imgs/zsibot_zsl1.png" alt="zsibot_zsl1" width="75">`                       |
+|                     | [Magiclab MagicDog](https://www.magiclab.top/dog)                           | RobotLab-Isaac-Velocity-Rough-MagicLab-Dog-v0       | `<img src="./docs/imgs/magiclab_magicdog.png" alt="magiclab_magicdog" width="75">`           |
+| **Wheeled**   | [Unitree Go2W](https://www.unitree.com/go2-w)                               | RobotLab-Isaac-Velocity-Rough-Unitree-Go2W-v0       | `<img src="./docs/imgs/unitree_go2w.png" alt="unitree_go2w" width="75">`                     |
+|                     | [Unitree B2W](https://www.unitree.com/b2-w)                                 | RobotLab-Isaac-Velocity-Rough-Unitree-B2W-v0        | `<img src="./docs/imgs/unitree_b2w.png" alt="unitree_b2w" width="75">`                       |
+|                     | [Deeprobotics M20](https://www.deeprobotics.cn/robot/index/lynx.html)       | RobotLab-Isaac-Velocity-Rough-Deeprobotics-M20-v0   | `<img src="./docs/imgs/deeprobotics_m20.png" alt="deeprobotics_m20" width="75">`             |
+|                     | [DDTRobot Tita](https://directdrive.com/product_TITA)                       | RobotLab-Isaac-Velocity-Rough-DDTRobot-Tita-v0      | `<img src="./docs/imgs/ddtrobot_tita.png" alt="ddtrobot_tita" width="75">`                   |
+|                     | [Zsibot ZSL1W](https://www.zsibot.com/zsl1)                                 | RobotLab-Isaac-Velocity-Rough-Zsibot-ZSL1W-v0       | `<img src="./docs/imgs/zsibot_zsl1w.png" alt="zsibot_zsl1w" width="75">`                     |
+|                     | [Magiclab MagicDog-W](https://www.magiclab.top/dog-w)                       | RobotLab-Isaac-Velocity-Rough-MagicLab-Dog-W-v0     | `<img src="./docs/imgs/magiclab_magicdog_w.png" alt="magiclab_magicdog_w" width="75">`       |
+| **Humanoid**  | [Unitree G1](https://www.unitree.com/g1)                                    | RobotLab-Isaac-Velocity-Rough-Unitree-G1-v0         | `<img src="./docs/imgs/unitree_g1.png" alt="unitree_g1" width="75">`                         |
+|                     | [Unitree H1](https://www.unitree.com/h1)                                    | RobotLab-Isaac-Velocity-Rough-Unitree-H1-v0         | `<img src="./docs/imgs/unitree_h1.png" alt="unitree_h1" width="75">`                         |
+|                     | [FFTAI GR1T1](https://www.fftai.com/products-gr1)                           | RobotLab-Isaac-Velocity-Rough-FFTAI-GR1T1-v0        | `<img src="./docs/imgs/fftai_gr1t1.png" alt="fftai_gr1t1" width="75">`                       |
+|                     | [FFTAI GR1T2](https://www.fftai.com/products-gr1)                           | RobotLab-Isaac-Velocity-Rough-FFTAI-GR1T2-v0        | `<img src="./docs/imgs/fftai_gr1t2.png" alt="fftai_gr1t2" width="75">`                       |
+|                     | [Booster T1](https://www.boosterobotics.com/)                               | RobotLab-Isaac-Velocity-Rough-Booster-T1-v0         | `<img src="./docs/imgs/booster_t1.png" alt="booster_t1" width="75">`                         |
+|                     | [RobotEra Xbot](https://www.robotera.com/)                                  | RobotLab-Isaac-Velocity-Rough-RobotEra-Xbot-v0      | `<img src="./docs/imgs/robotera_xbot.png" alt="robotera_xbot" width="75">`                   |
+|                     | [Openloong Loong](https://www.openloong.net/)                               | RobotLab-Isaac-Velocity-Rough-Openloong-Loong-v0    | `<img src="./docs/imgs/openloong_loong.png" alt="openloong_loong" width="75">`               |
+|                     | [RoboParty ATOM01](https://roboparty.cn/)                                   | RobotLab-Isaac-Velocity-Rough-RoboParty-ATOM01-v0   | `<img src="./docs/imgs/roboparty_atom01.png" alt="roboparty_atom01" width="75">`             |
+|                     | [Magiclab MagicBot-Gen1](https://www.magiclab.top/human)                    | RobotLab-Isaac-Velocity-Rough-MagicLab-Bot-Gen1-v0  | `<img src="./docs/imgs/magiclab_magicbot_gen1.png" alt="magiclab_magicbot_gen1" width="75">` |
+|                     | [Magiclab MagicBot-Z1](https://www.magiclab.top/z1)                         | RobotLab-Isaac-Velocity-Rough-MagicLab-Bot-Z1-v0    | `<img src="./docs/imgs/magiclab_magicbot_z1.png" alt="magiclab_magicbot_z1" width="75">`     |
 
 > [!NOTE]
 > If you want to run policy in gazebo or real robot, please use [rl_sar](https://github.com/fan-ziqi/rl_sar) project.
@@ -47,29 +47,26 @@ The table below lists all available environments:
 
 ## Version Dependency
 
-| robot_lab Version | Isaac Lab Version             | Isaac Sim Version       |
-|------------------ | ----------------------------- | ----------------------- |
-| `main` branch     | `main` branch                 | Isaac Sim 4.5 / 5.0     |
-| `v2.2.0`          | `v2.2.0`                      | Isaac Sim 4.5 / 5.0     |
-| `v2.1.1`          | `v2.1.1`                      | Isaac Sim 4.5           |
-| `v1.1`            | `v1.4.1`                      | Isaac Sim 4.2           |
+| robot_lab Version | Isaac Lab Version | Isaac Sim Version   |
+| ----------------- | ----------------- | ------------------- |
+| `main` branch   | `main` branch   | Isaac Sim 4.5 / 5.0 |
+| `v2.2.0`        | `v2.2.0`        | Isaac Sim 4.5 / 5.0 |
+| `v2.1.1`        | `v2.1.1`        | Isaac Sim 4.5       |
+| `v1.1`          | `v1.4.1`        | Isaac Sim 4.2       |
 
 ## Installation
 
 - Install Isaac Lab by following the [installation guide](https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html). We recommend using the conda installation as it simplifies calling Python scripts from the terminal.
-
 - Clone this repository separately from the Isaac Lab installation (i.e. outside the `IsaacLab` directory):
 
   ```bash
   git clone https://github.com/fan-ziqi/robot_lab.git
   ```
-
 - Using a python interpreter that has Isaac Lab installed, install the library
 
   ```bash
   python -m pip install -e source/robot_lab
   ```
-
 - Verify that the extension is correctly installed by running the following command to print all the available environments in the extension:
 
   ```bash
@@ -97,15 +94,16 @@ We provide an example UI extension that will load upon enabling your extension d
 To enable your extension, follow these steps:
 
 1. **Add the search path of your repository** to the extension manager:
-    - Navigate to the extension manager using `Window` -> `Extensions`.
-    - Click on the **Hamburger Icon** (☰), then go to `Settings`.
-    - In the `Extension Search Paths`, enter the absolute path to `robot_lab/source`
-    - If not already present, in the `Extension Search Paths`, enter the path that leads to Isaac Lab's extension directory directory (`IsaacLab/source`)
-    - Click on the **Hamburger Icon** (☰), then click `Refresh`.
 
+   - Navigate to the extension manager using `Window` -> `Extensions`.
+   - Click on the **Hamburger Icon** (☰), then go to `Settings`.
+   - In the `Extension Search Paths`, enter the absolute path to `robot_lab/source`
+   - If not already present, in the `Extension Search Paths`, enter the path that leads to Isaac Lab's extension directory directory (`IsaacLab/source`)
+   - Click on the **Hamburger Icon** (☰), then click `Refresh`.
 2. **Search and enable your extension**:
-    - Find your extension under the `Third Party` category.
-    - Toggle it to enable your extension.
+
+   - Find your extension under the `Third Party` category.
+   - Toggle it to enable your extension.
 
 </details>
 
@@ -203,7 +201,7 @@ python scripts/reinforcement_learning/rsl_rl/train.py --task=<ENV_NAME> --headle
 python scripts/reinforcement_learning/rsl_rl/play.py --task=<ENV_NAME>
 ```
 
-CusRL (**Experimental**:​​ Hydra not supported yet):
+CusRL (**Experimental**: Hydra not supported yet):
 
 ```bash
 # Train
@@ -224,7 +222,6 @@ Others (**Experimental**)
   # Play
   python scripts/reinforcement_learning/skrl/play.py --task=RobotLab-Isaac-G1-AMP-Dance-Direct-v0 --algorithm AMP --num_envs=32
   ```
-
 - Train Handstand for Unitree A1
 
   ```bash
@@ -255,20 +252,24 @@ Others (**Experimental**)
 * Play on specific folder or checkpoint, add `--load_run run_folder_name --checkpoint model.pt`
 * Resume training from folder or checkpoint, add `--resume --load_run run_folder_name --checkpoint model.pt`
 * To train with multiple GPUs, use the following command, where --nproc_per_node represents the number of available GPUs:
-    ```bash
-    python -m torch.distributed.run --nnodes=1 --nproc_per_node=2 scripts/reinforcement_learning/rsl_rl/train.py --task=<ENV_NAME> --headless --distributed
-    ```
+
+  ```bash
+  python -m torch.distributed.run --nnodes=1 --nproc_per_node=2 scripts/reinforcement_learning/rsl_rl/train.py --task=<ENV_NAME> --headless --distributed
+  ```
 * To scale up training beyond multiple GPUs on a single machine, it is also possible to train across multiple nodes. To train across multiple nodes/machines, it is required to launch an individual process on each node.
 
-    For the master node, use the following command, where --nproc_per_node represents the number of available GPUs, and --nnodes represents the number of nodes:
-    ```bash
-    python -m torch.distributed.run --nproc_per_node=2 --nnodes=2 --node_rank=0 --rdzv_id=123 --rdzv_backend=c10d --rdzv_endpoint=localhost:5555 scripts/reinforcement_learning/rsl_rl/train.py --task=<ENV_NAME> --headless --distributed
-    ```
-    Note that the port (`5555`) can be replaced with any other available port.
-    For non-master nodes, use the following command, replacing `--node_rank` with the index of each machine:
-    ```bash
-    python -m torch.distributed.run --nproc_per_node=2 --nnodes=2 --node_rank=1 --rdzv_id=123 --rdzv_backend=c10d --rdzv_endpoint=ip_of_master_machine:5555 scripts/reinforcement_learning/rsl_rl/train.py --task=<ENV_NAME> --headless --distributed
-    ```
+  For the master node, use the following command, where --nproc_per_node represents the number of available GPUs, and --nnodes represents the number of nodes:
+
+  ```bash
+  python -m torch.distributed.run --nproc_per_node=2 --nnodes=2 --node_rank=0 --rdzv_id=123 --rdzv_backend=c10d --rdzv_endpoint=localhost:5555 scripts/reinforcement_learning/rsl_rl/train.py --task=<ENV_NAME> --headless --distributed
+  ```
+
+  Note that the port (`5555`) can be replaced with any other available port.
+  For non-master nodes, use the following command, replacing `--node_rank` with the index of each machine:
+
+  ```bash
+  python -m torch.distributed.run --nproc_per_node=2 --nnodes=2 --node_rank=1 --rdzv_id=123 --rdzv_backend=c10d --rdzv_endpoint=ip_of_master_machine:5555 scripts/reinforcement_learning/rsl_rl/train.py --task=<ENV_NAME> --headless --distributed
+  ```
 
 ## Add your own robot
 
