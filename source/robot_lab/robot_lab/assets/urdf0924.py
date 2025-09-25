@@ -59,20 +59,21 @@ URDF_0924_CFG = ArticulationCfg(
     ),
     # ... other configuration parameters ...
     init_state=ArticulationCfg.InitialStateCfg(
-        pos=(0.0, 0.0, 0.8),
+        pos=(0.0, 0.0, 0.83),
         joint_pos={ # 27 DOF
-            ".*_hip_pitch_joint": -0.1,
+            ".*_hip_pitch_joint": -0.4,
             ".*_hip_roll_joint": 0.0,
             ".*_hip_yaw_joint": 0.0,
-            ".*_knee_joint": 0.3,
-            ".*_ankle_pitch_joint": -0.2,
+            ".*_knee_joint": 0.8,
+            ".*_ankle_pitch_joint": -0.4,
             ".*_ankle_roll_joint": 0.0,
             
             "torso_joint": 0.0,  # torso joints
-            ".*_shoulder_pitch_joint": 0.0,
-            ".*_shoulder_roll_joint": 0.0,
+            ".*_shoulder_pitch_joint": -0.3,
+            "right_shoulder_roll_joint": -0.2, #(right -0.2, left 0.2)
+            "left_shoulder_roll_joint": 0.2,
             ".*_shoulder_yaw_joint": 0.0,
-            ".*_elbow_joint": 0.0,
+            ".*_elbow_joint": 0.1,
             
             ".*_wrist_roll_joint": 0.0,
             ".*_wrist_pitch_joint": 0.0,
