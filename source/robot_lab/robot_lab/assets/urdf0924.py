@@ -68,7 +68,7 @@ URDF_0924_CFG = ArticulationCfg(
             ".*_ankle_pitch_joint": -0.2,
             ".*_ankle_roll_joint": 0.0,
             
-            ".*_joint": 0.0,  # torso joints
+            "torso_joint": 0.0,  # torso joints
             ".*_shoulder_pitch_joint": 0.0,
             ".*_shoulder_roll_joint": 0.0,
             ".*_shoulder_yaw_joint": 0.0,
@@ -109,7 +109,7 @@ URDF_0924_CFG = ArticulationCfg(
             },
         ),
         "waist": ImplicitActuatorCfg(
-            joint_names_expr=[".*_joint"],
+            joint_names_expr=["torso_joint"],
             effort_limit_sim=300,
             velocity_limit_sim=100.0,
             stiffness={
@@ -124,7 +124,7 @@ URDF_0924_CFG = ArticulationCfg(
         ),
         "feet": ImplicitActuatorCfg(
             effort_limit_sim=20,
-            joint_names_expr=["*_knee_joint",".*_ankle_pitch_joint", ".*_ankle_roll_joint"],
+            joint_names_expr=[".*_knee_joint",".*_ankle_pitch_joint", ".*_ankle_roll_joint"],
             stiffness=20.0,
             damping=2.0,
             armature=0.01,
