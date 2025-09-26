@@ -32,6 +32,10 @@ parser.add_argument("--max_iterations", type=int, default=None, help="RL Policy 
 parser.add_argument(
     "--distributed", action="store_true", default=False, help="Run training with multiple GPUs or nodes."
 )
+# TensorBoard arguments
+parser.add_argument("--tensorboard", action="store_true", default=True, help="Enable TensorBoard logging.")
+parser.add_argument("--tb_port", type=int, default=6006, help="TensorBoard port.")
+parser.add_argument("--tb_launch", action="store_true", default=False, help="Auto-launch TensorBoard server.")
 # append RSL-RL cli arguments
 cli_args.add_rsl_rl_args(parser)
 # append AppLauncher cli args
@@ -54,6 +58,9 @@ simulation_app = app_launcher.app
 import gymnasium as gym
 import os
 import torch
+import threading
+import subprocess
+import time
 from datetime import datetime
 
 from rsl_rl.runners import OnPolicyRunner
@@ -71,12 +78,143 @@ from isaaclab_rl.rsl_rl import RslRlOnPolicyRunnerCfg, RslRlVecEnvWrapper
 from isaaclab_tasks.utils import get_checkpoint_path
 from isaaclab_tasks.utils.hydra import hydra_task_config
 
+# TensorBoard imports
+try:
+    from torch.utils.tensorboard import SummaryWriter
+    TENSORBOARD_AVAILABLE = True
+except ImportError:
+    print("[WARNING] TensorBoard not available. Install with: pip install tensorboard")
+    TENSORBOARD_AVAILABLE = False
+
 import robot_lab.tasks  # noqa: F401
 
 torch.backends.cuda.matmul.allow_tf32 = True
 torch.backends.cudnn.allow_tf32 = True
 torch.backends.cudnn.deterministic = False
 torch.backends.cudnn.benchmark = False
+
+
+class TensorBoardManager:
+    """Manages TensorBoard logging and server."""
+    
+    def __init__(self, log_dir: str, port: int = 6006, auto_launch: bool = False):
+        self.log_dir = log_dir
+        self.port = port
+        self.auto_launch = auto_launch
+        self.writer = None
+        self.tb_process = None
+        
+        if TENSORBOARD_AVAILABLE:
+            self.writer = SummaryWriter(log_dir)
+            print(f"[INFO] TensorBoard logging to: {log_dir}")
+            
+            if self.auto_launch:
+                self.launch_tensorboard()
+    
+    def launch_tensorboard(self):
+        """Launch TensorBoard server in background."""
+        try:
+            # Check if TensorBoard is already running on this port
+            import socket
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            result = sock.connect_ex(('localhost', self.port))
+            sock.close()
+            
+            if result != 0:  # Port is free
+                print(f"[INFO] Launching TensorBoard on port {self.port}")
+                self.tb_process = subprocess.Popen([
+                    'tensorboard', '--logdir', self.log_dir, 
+                    '--port', str(self.port), '--reload_interval', '30'
+                ])
+                print(f"[INFO] TensorBoard URL: http://localhost:{self.port}")
+                
+                # Wait a bit for TensorBoard to start
+                time.sleep(2)
+            else:
+                print(f"[INFO] TensorBoard already running on port {self.port}")
+                
+        except Exception as e:
+            print(f"[WARNING] Could not launch TensorBoard: {e}")
+    
+    def log_scalar(self, tag: str, value, step: int):
+        """Log scalar value."""
+        if self.writer:
+            self.writer.add_scalar(tag, value, step)
+    
+    def log_scalars(self, tag: str, values: dict, step: int):
+        """Log multiple scalars."""
+        if self.writer:
+            self.writer.add_scalars(tag, values, step)
+    
+    def log_histogram(self, tag: str, values, step: int):
+        """Log histogram."""
+        if self.writer:
+            self.writer.add_histogram(tag, values, step)
+    
+    def log_image(self, tag: str, img_tensor, step: int):
+        """Log image."""
+        if self.writer:
+            self.writer.add_image(tag, img_tensor, step)
+    
+    def flush(self):
+        """Flush logs."""
+        if self.writer:
+            self.writer.flush()
+    
+    def close(self):
+        """Close TensorBoard writer and server."""
+        if self.writer:
+            self.writer.close()
+        
+        if self.tb_process:
+            try:
+                self.tb_process.terminate()
+                print("[INFO] TensorBoard server stopped")
+            except:
+                pass
+
+
+class EnhancedOnPolicyRunner(OnPolicyRunner):
+    """Extended OnPolicyRunner with TensorBoard integration."""
+    
+    def __init__(self, env, train_cfg, log_dir, device='cpu', tb_manager=None):
+        super().__init__(env, train_cfg, log_dir, device)
+        self.tb_manager = tb_manager
+        self.training_step = 0
+    
+    def learn(self, num_learning_iterations, init_at_random_ep_len=False):
+        """Enhanced learning with TensorBoard logging."""
+        # Store original log method if it exists
+        original_log = getattr(self.alg, 'log', None) if hasattr(self, 'alg') else None
+        
+        # Override algorithm's log method to add TensorBoard logging
+        if self.tb_manager and original_log:
+            def enhanced_log(locs, width=80, pad=35):
+                # Call original logging
+                original_log(locs, width, pad)
+                
+                # Add TensorBoard logging
+                if isinstance(locs, dict):
+                    for key, value in locs.items():
+                        if isinstance(value, (int, float)):
+                            self.tb_manager.log_scalar(f'Training/{key}', value, self.training_step)
+                        elif isinstance(value, dict):
+                            self.tb_manager.log_scalars(f'Training/{key}', value, self.training_step)
+                
+                self.training_step += 1
+                
+                # Flush every 10 steps
+                if self.training_step % 10 == 0:
+                    self.tb_manager.flush()
+            
+            # Replace the log method
+            if hasattr(self.alg, 'log'):
+                self.alg.log = enhanced_log
+        
+        # Call parent learn method
+        result = super().learn(num_learning_iterations, init_at_random_ep_len)
+        
+        return result
 
 
 @hydra_task_config(args_cli.task, "rsl_rl_cfg_entry_point")
@@ -116,6 +254,12 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
         log_dir += f"_{agent_cfg.run_name}"
     log_dir = os.path.join(log_root_path, log_dir)
 
+    # Initialize TensorBoard manager
+    tb_manager = None
+    if args_cli.tensorboard and TENSORBOARD_AVAILABLE:
+        tb_dir = os.path.join(log_dir, "tensorboard")
+        tb_manager = TensorBoardManager(tb_dir, args_cli.tb_port, args_cli.tb_launch)
+
     # create isaac environment
     env = gym.make(args_cli.task, cfg=env_cfg, render_mode="rgb_array" if args_cli.video else None)
 
@@ -142,8 +286,13 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     # wrap around environment for rsl-rl
     env = RslRlVecEnvWrapper(env, clip_actions=agent_cfg.clip_actions)
 
-    # create runner from rsl-rl
-    runner = OnPolicyRunner(env, agent_cfg.to_dict(), log_dir=log_dir, device=agent_cfg.device)
+    # create runner from rsl-rl (enhanced version with TensorBoard)
+    if tb_manager:
+        runner = EnhancedOnPolicyRunner(env, agent_cfg.to_dict(), log_dir=log_dir, 
+                                       device=agent_cfg.device, tb_manager=tb_manager)
+    else:
+        runner = OnPolicyRunner(env, agent_cfg.to_dict(), log_dir=log_dir, device=agent_cfg.device)
+    
     # write git state to logs
     runner.add_git_repo_to_log(__file__)
     # load the checkpoint
@@ -158,11 +307,36 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     dump_pickle(os.path.join(log_dir, "params", "env.pkl"), env_cfg)
     dump_pickle(os.path.join(log_dir, "params", "agent.pkl"), agent_cfg)
 
-    # run training
-    runner.learn(num_learning_iterations=agent_cfg.max_iterations, init_at_random_ep_len=True)
+    # Log hyperparameters to TensorBoard
+    if tb_manager:
+        # Create a simple dict of key hyperparameters
+        hparams = {
+            'num_envs': env_cfg.scene.num_envs,
+            'max_iterations': agent_cfg.max_iterations,
+            'seed': env_cfg.seed,
+            'task': args_cli.task or 'unknown'
+        }
+        
+        # Add learning rate if available
+        if hasattr(agent_cfg.algorithm, 'learning_rate'):
+            hparams['learning_rate'] = agent_cfg.algorithm.learning_rate
+        
+        # Log as text for now (since hparams logging can be complex)
+        hparam_text = '\n'.join([f'{k}: {v}' for k, v in hparams.items()])
+        tb_manager.writer.add_text('Hyperparameters', hparam_text, 0)
 
-    # close the simulator
-    env.close()
+    try:
+        # run training
+        runner.learn(num_learning_iterations=agent_cfg.max_iterations, init_at_random_ep_len=True)
+        
+    finally:
+        # Clean up
+        if tb_manager:
+            print("[INFO] Closing TensorBoard...")
+            tb_manager.close()
+        
+        # close the simulator
+        env.close()
 
 
 if __name__ == "__main__":
