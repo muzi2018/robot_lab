@@ -1,0 +1,329 @@
+--- git status ---
+On branch dev/reward_log
+Your branch is up to date with 'origin/dev/reward_log'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   scripts/reinforcement_learning/rsl_rl/train.py
+	modified:   source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-310.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/__init__.cpython-310.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-310.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/__init__.cpython-310.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/rough_env_cfg.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/rsl_rl/urdf_0924_flat/2025-09-26_17-22-18/
+	logs/rsl_rl/urdf_0924_flat/2025-09-26_23-00-03/
+	outputs/2025-09-26/17-22-18/
+	outputs/2025-09-26/23-00-03/
+	scripts/reinforcement_learning/rsl_rl/__init__.py
+	scripts/reinforcement_learning/rsl_rl/modules/
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/scripts/reinforcement_learning/rsl_rl/train.py b/scripts/reinforcement_learning/rsl_rl/train.py
+index b89712c..fba8b44 100644
+--- a/scripts/reinforcement_learning/rsl_rl/train.py
++++ b/scripts/reinforcement_learning/rsl_rl/train.py
+@@ -32,10 +32,6 @@ parser.add_argument("--max_iterations", type=int, default=None, help="RL Policy
+ parser.add_argument(
+     "--distributed", action="store_true", default=False, help="Run training with multiple GPUs or nodes."
+ )
+-# TensorBoard arguments
+-parser.add_argument("--tensorboard", action="store_true", default=True, help="Enable TensorBoard logging.")
+-parser.add_argument("--tb_port", type=int, default=6006, help="TensorBoard port.")
+-parser.add_argument("--tb_launch", action="store_true", default=False, help="Auto-launch TensorBoard server.")
+ # append RSL-RL cli arguments
+ cli_args.add_rsl_rl_args(parser)
+ # append AppLauncher cli args
+@@ -58,13 +54,9 @@ simulation_app = app_launcher.app
+ import gymnasium as gym
+ import os
+ import torch
+-import threading
+-import subprocess
+-import time
+ from datetime import datetime
+ 
+ from rsl_rl.runners import OnPolicyRunner
+-
+ from isaaclab.envs import (
+     DirectMARLEnv,
+     DirectMARLEnvCfg,
+@@ -78,14 +70,6 @@ from isaaclab_rl.rsl_rl import RslRlOnPolicyRunnerCfg, RslRlVecEnvWrapper
+ from isaaclab_tasks.utils import get_checkpoint_path
+ from isaaclab_tasks.utils.hydra import hydra_task_config
+ 
+-# TensorBoard imports
+-try:
+-    from torch.utils.tensorboard import SummaryWriter
+-    TENSORBOARD_AVAILABLE = True
+-except ImportError:
+-    print("[WARNING] TensorBoard not available. Install with: pip install tensorboard")
+-    TENSORBOARD_AVAILABLE = False
+-
+ import robot_lab.tasks  # noqa: F401
+ 
+ torch.backends.cuda.matmul.allow_tf32 = True
+@@ -94,129 +78,6 @@ torch.backends.cudnn.deterministic = False
+ torch.backends.cudnn.benchmark = False
+ 
+ 
+-class TensorBoardManager:
+-    """Manages TensorBoard logging and server."""
+-    
+-    def __init__(self, log_dir: str, port: int = 6006, auto_launch: bool = False):
+-        self.log_dir = log_dir
+-        self.port = port
+-        self.auto_launch = auto_launch
+-        self.writer = None
+-        self.tb_process = None
+-        
+-        if TENSORBOARD_AVAILABLE:
+-            self.writer = SummaryWriter(log_dir)
+-            print(f"[INFO] TensorBoard logging to: {log_dir}")
+-            
+-            if self.auto_launch:
+-                self.launch_tensorboard()
+-    
+-    def launch_tensorboard(self):
+-        """Launch TensorBoard server in background."""
+-        try:
+-            # Check if TensorBoard is already running on this port
+-            import socket
+-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+-            result = sock.connect_ex(('localhost', self.port))
+-            sock.close()
+-            
+-            if result != 0:  # Port is free
+-                print(f"[INFO] Launching TensorBoard on port {self.port}")
+-                self.tb_process = subprocess.Popen([
+-                    'tensorboard', '--logdir', self.log_dir, 
+-                    '--port', str(self.port), '--reload_interval', '30'
+-                ])
+-                print(f"[INFO] TensorBoard URL: http://localhost:{self.port}")
+-                
+-                # Wait a bit for TensorBoard to start
+-                time.sleep(2)
+-            else:
+-                print(f"[INFO] TensorBoard already running on port {self.port}")
+-                
+-        except Exception as e:
+-            print(f"[WARNING] Could not launch TensorBoard: {e}")
+-    
+-    def log_scalar(self, tag: str, value, step: int):
+-        """Log scalar value."""
+-        if self.writer:
+-            self.writer.add_scalar(tag, value, step)
+-    
+-    def log_scalars(self, tag: str, values: dict, step: int):
+-        """Log multiple scalars."""
+-        if self.writer:
+-            self.writer.add_scalars(tag, values, step)
+-    
+-    def log_histogram(self, tag: str, values, step: int):
+-        """Log histogram."""
+-        if self.writer:
+-            self.writer.add_histogram(tag, values, step)
+-    
+-    def log_image(self, tag: str, img_tensor, step: int):
+-        """Log image."""
+-        if self.writer:
+-            self.writer.add_image(tag, img_tensor, step)
+-    
+-    def flush(self):
+-        """Flush logs."""
+-        if self.writer:
+-            self.writer.flush()
+-    
+-    def close(self):
+-        """Close TensorBoard writer and server."""
+-        if self.writer:
+-            self.writer.close()
+-        
+-        if self.tb_process:
+-            try:
+-                self.tb_process.terminate()
+-                print("[INFO] TensorBoard server stopped")
+-            except:
+-                pass
+-
+-
+-class EnhancedOnPolicyRunner(OnPolicyRunner):
+-    """Extended OnPolicyRunner with TensorBoard integration."""
+-    
+-    def __init__(self, env, train_cfg, log_dir, device='cpu', tb_manager=None):
+-        super().__init__(env, train_cfg, log_dir, device)
+-        self.tb_manager = tb_manager
+-        self.training_step = 0
+-    
+-    def learn(self, num_learning_iterations, init_at_random_ep_len=False):
+-        """Enhanced learning with TensorBoard logging."""
+-        # Store original log method if it exists
+-        original_log = getattr(self.alg, 'log', None) if hasattr(self, 'alg') else None
+-        
+-        # Override algorithm's log method to add TensorBoard logging
+-        if self.tb_manager and original_log:
+-            def enhanced_log(locs, width=80, pad=35):
+-                # Call original logging
+-                original_log(locs, width, pad)
+-                
+-                # Add TensorBoard logging
+-                if isinstance(locs, dict):
+-                    for key, value in locs.items():
+-                        if isinstance(value, (int, float)):
+-                            self.tb_manager.log_scalar(f'Training/{key}', value, self.training_step)
+-                        elif isinstance(value, dict):
+-                            self.tb_manager.log_scalars(f'Training/{key}', value, self.training_step)
+-                
+-                self.training_step += 1
+-                
+-                # Flush every 10 steps
+-                if self.training_step % 10 == 0:
+-                    self.tb_manager.flush()
+-            
+-            # Replace the log method
+-            if hasattr(self.alg, 'log'):
+-                self.alg.log = enhanced_log
+-        
+-        # Call parent learn method
+-        result = super().learn(num_learning_iterations, init_at_random_ep_len)
+-        
+-        return result
+-
+-
+ @hydra_task_config(args_cli.task, "rsl_rl_cfg_entry_point")
+ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agent_cfg: RslRlOnPolicyRunnerCfg):
+     """Train with RSL-RL agent."""
+@@ -224,7 +85,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
+     agent_cfg = cli_args.update_rsl_rl_cfg(agent_cfg, args_cli)
+     env_cfg.scene.num_envs = args_cli.num_envs if args_cli.num_envs is not None else env_cfg.scene.num_envs
+     agent_cfg.max_iterations = (
+-        args_cli.max_iterations if args_cli.max_iterations is not None else agent_cfg.max_iterations
++        args_cli.max_iterations if args_cli.max_iterations is not None else agent_cfg.max_iterations    
+     )
+ 
+     # set the environment seed
+@@ -254,12 +115,6 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
+         log_dir += f"_{agent_cfg.run_name}"
+     log_dir = os.path.join(log_root_path, log_dir)
+ 
+-    # Initialize TensorBoard manager
+-    tb_manager = None
+-    if args_cli.tensorboard and TENSORBOARD_AVAILABLE:
+-        tb_dir = os.path.join(log_dir, "tensorboard")
+-        tb_manager = TensorBoardManager(tb_dir, args_cli.tb_port, args_cli.tb_launch)
+-
+     # create isaac environment
+     env = gym.make(args_cli.task, cfg=env_cfg, render_mode="rgb_array" if args_cli.video else None)
+ 
+@@ -286,13 +141,8 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
+     # wrap around environment for rsl-rl
+     env = RslRlVecEnvWrapper(env, clip_actions=agent_cfg.clip_actions)
+ 
+-    # create runner from rsl-rl (enhanced version with TensorBoard)
+-    if tb_manager:
+-        runner = EnhancedOnPolicyRunner(env, agent_cfg.to_dict(), log_dir=log_dir, 
+-                                       device=agent_cfg.device, tb_manager=tb_manager)
+-    else:
+-        runner = OnPolicyRunner(env, agent_cfg.to_dict(), log_dir=log_dir, device=agent_cfg.device)
+-    
++    # create runner from rsl-rl
++    runner = OnPolicyRunner(env, agent_cfg.to_dict(), log_dir=log_dir, device=agent_cfg.device)
+     # write git state to logs
+     runner.add_git_repo_to_log(__file__)
+     # load the checkpoint
+@@ -307,40 +157,15 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
+     dump_pickle(os.path.join(log_dir, "params", "env.pkl"), env_cfg)
+     dump_pickle(os.path.join(log_dir, "params", "agent.pkl"), agent_cfg)
+ 
+-    # Log hyperparameters to TensorBoard
+-    if tb_manager:
+-        # Create a simple dict of key hyperparameters
+-        hparams = {
+-            'num_envs': env_cfg.scene.num_envs,
+-            'max_iterations': agent_cfg.max_iterations,
+-            'seed': env_cfg.seed,
+-            'task': args_cli.task or 'unknown'
+-        }
+-        
+-        # Add learning rate if available
+-        if hasattr(agent_cfg.algorithm, 'learning_rate'):
+-            hparams['learning_rate'] = agent_cfg.algorithm.learning_rate
+-        
+-        # Log as text for now (since hparams logging can be complex)
+-        hparam_text = '\n'.join([f'{k}: {v}' for k, v in hparams.items()])
+-        tb_manager.writer.add_text('Hyperparameters', hparam_text, 0)
+-
+-    try:
+-        # run training
+-        runner.learn(num_learning_iterations=agent_cfg.max_iterations, init_at_random_ep_len=True)
+-        
+-    finally:
+-        # Clean up
+-        if tb_manager:
+-            print("[INFO] Closing TensorBoard...")
+-            tb_manager.close()
+-        
+-        # close the simulator
+-        env.close()
++    # run training
++    runner.learn(num_learning_iterations=agent_cfg.max_iterations, init_at_random_ep_len=True)
++
++    # close the simulator
++    env.close()
+ 
+ 
+ if __name__ == "__main__":
+     # run the main function
+     main()
+     # close sim app
+-    simulation_app.close()
+\ No newline at end of file
++    simulation_app.close()
+diff --git a/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-310.pyc b/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-310.pyc
+index bb159a0..6766ca7 100644
+Binary files a/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-310.pyc and b/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-310.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/__init__.cpython-310.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/__init__.cpython-310.pyc
+index 578d8ff..fa51db6 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/__init__.cpython-310.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/__init__.cpython-310.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-310.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-310.pyc
+index feb1b90..d9eba57 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-310.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-310.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc
+index 86e6830..4b2b4e1 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/__init__.cpython-310.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/__init__.cpython-310.pyc
+index 7bb5370..a575d39 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/__init__.cpython-310.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/__init__.cpython-310.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc
+index f0c0cca..d971532 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/rough_env_cfg.py b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/rough_env_cfg.py
+index 7b93bde..e88fa28 100644
+--- a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/rough_env_cfg.py
++++ b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/rough_env_cfg.py
+@@ -87,7 +87,7 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
+         self.rewards.is_terminated.weight = -200.0
+ 
+         # Root penalties
+-        self.rewards.lin_vel_z_l2.weight = 0
++        self.rewards.lin_vel_z_l2.weight = 0.0
+         self.rewards.ang_vel_xy_l2.weight = -0.1
+         self.rewards.flat_orientation_l2.weight = -0.2
+         self.rewards.base_height_l2.weight = 0
+@@ -110,7 +110,7 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
+         self.rewards.joint_power.weight = 0
+         self.rewards.stand_still_without_cmd.weight = 0
+         self.rewards.joint_pos_penalty.weight = -1.0
+-        self.rewards.joint_mirror.weight = 0.1
++        self.rewards.joint_mirror.weight = 0.0
+         self.rewards.joint_mirror.params["mirror_joints"] = [["left_(hip|knee|ankle).*", "right_(hip|knee|ankle).*"]]
+ 
+         # Action penalties
