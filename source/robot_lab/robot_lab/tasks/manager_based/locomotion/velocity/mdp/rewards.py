@@ -86,6 +86,72 @@ def joint_power(env: ManagerBasedRLEnv, asset_cfg: SceneEntityCfg = SceneEntityC
     return reward
 
 
+from isaaclab.utils.math import quat_apply_inverse
+
+def feet_horizontal_simple(
+    env: ManagerBasedRLEnv,
+    asset_cfg: SceneEntityCfg,
+    max_angle: float = 0.3,  # ~17 degrees
+    command_name: str = "base_velocity",
+    velocity_threshold: float = 0.1,
+) -> torch.Tensor:
+    """
+    Simplified version: Reward for keeping feet horizontal using linear penalty.
+    
+    Args:
+        env: The RL environment.
+        asset_cfg: Asset configuration containing the feet body names.
+        max_angle: Maximum allowed deviation angle in radians.
+        command_name: Name of the velocity command.
+        velocity_threshold: Minimum velocity to apply the reward.
+        
+    Returns:
+        Reward tensor for each environment.
+    """
+    # Get the robot asset
+    robot = env.scene[asset_cfg.name]
+    
+    # Get velocity commands (optional gating)
+    if hasattr(env.command_manager, command_name):
+        commands = env.command_manager.get_command(command_name)
+        is_moving = torch.norm(commands[:, :2], dim=1) > velocity_threshold
+    else:
+        is_moving = torch.ones(env.num_envs, dtype=torch.bool, device=env.device)
+    
+    # Get feet orientations
+    feet_quat_w = robot.data.body_quat_w[:, asset_cfg.body_ids, :]
+    
+    # Get foot z-axis in world coordinates (foot surface normal)
+    z_axis_local = torch.tensor([0.0, 0.0, 1.0], device=env.device).expand(
+        env.num_envs, len(asset_cfg.body_ids), 3
+    )
+    feet_z_w = quat_apply_inverse(feet_quat_w.view(-1, 4), z_axis_local.view(-1, 3))
+    feet_z_w = feet_z_w.view(env.num_envs, len(asset_cfg.body_ids), 3)
+    
+    # Calculate angle between foot normal and world up vector
+    world_up = torch.tensor([0.0, 0.0, 1.0], device=env.device)
+    cos_angle = torch.sum(feet_z_w * world_up.expand_as(feet_z_w), dim=2)
+    cos_angle = torch.clamp(cos_angle, -1.0, 1.0)
+    
+    # Convert to deviation from horizontal
+    # When foot is horizontal, cos_angle should be close to 0
+    # When foot is vertical, cos_angle is close to ±1
+    horizontal_deviation = torch.abs(cos_angle)  # 0 = horizontal, 1 = vertical
+    
+    # Linear reward: 1 when horizontal, 0 when at max_angle
+    # horizontal_deviation of 0 = reward 1
+    # horizontal_deviation of sin(max_angle) = reward 0
+    sin_max_angle = torch.sin(torch.tensor(max_angle, device=env.device))
+    reward_per_foot = torch.clamp(1.0 - horizontal_deviation / sin_max_angle, 0.0, 1.0)
+    
+    # Average across feet
+    total_reward = torch.mean(reward_per_foot, dim=1)
+    
+    # Optional: only apply when moving
+    # total_reward = torch.where(is_moving, total_reward, torch.zeros_like(total_reward))
+    
+    return total_reward
+
 def stand_still_without_cmd(
     env: ManagerBasedRLEnv,
     command_name: str,

@@ -151,6 +151,8 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.rewards.feet_height_body.params["target_height"] = -0.2
         self.rewards.feet_height_body.params["asset_cfg"].body_names = [self.foot_link_name]
         self.rewards.upward.weight = 1.0
+        self.rewards.feet_horizontal_simple.weight = 0.5
+        self.rewards.feet_horizontal_simple.params["asset_cfg"].body_names = [self.foot_link_name]
 
         # If the weight of rewards is 0, set rewards to None
         if self.__class__.__name__ == "URDF_0924RoughEnvCfg":

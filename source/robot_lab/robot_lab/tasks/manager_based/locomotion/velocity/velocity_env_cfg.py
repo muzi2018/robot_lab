@@ -631,6 +631,16 @@ class RewardsCfg:
 
     upward = RewTerm(func=mdp.upward, weight=0.0)
 
+    feet_horizontal_simple = RewTerm(
+        func=mdp.feet_horizontal_simple,
+        weight=0.0,
+        params={
+            "asset_cfg": SceneEntityCfg("robot", body_names=".*_ankle_.*_link"),
+            "max_angle": 0.1,
+            "command_name": "base_velocity", 
+            "velocity_threshold": 0.1,
+        },
+    )
 
 @configclass
 class TerminationsCfg:

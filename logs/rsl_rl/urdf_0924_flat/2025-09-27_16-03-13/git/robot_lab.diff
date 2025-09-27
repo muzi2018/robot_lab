@@ -1,0 +1,143 @@
+--- git status ---
+On branch dev/reward_log
+Your branch is up to date with 'origin/dev/reward_log'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-310.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/rough_env_cfg.py
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-310.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/rewards.py
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/rsl_rl/urdf_0924_flat/2025-09-27_16-03-13/
+	outputs/2025-09-27/16-03-13/
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-310.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-310.pyc
+index 67248f8..a8a5f17 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-310.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-310.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc
+index ba87913..e07c65d 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/rough_env_cfg.py b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/rough_env_cfg.py
+index f723ae2..b0231d5 100644
+--- a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/rough_env_cfg.py
++++ b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/rough_env_cfg.py
+@@ -151,6 +151,8 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
+         self.rewards.feet_height_body.params["target_height"] = -0.2
+         self.rewards.feet_height_body.params["asset_cfg"].body_names = [self.foot_link_name]
+         self.rewards.upward.weight = 1.0
++        self.rewards.feet_horizontal_simple.weight = 0.5
++        self.rewards.feet_horizontal_simple.params["asset_cfg"].body_names = [self.foot_link_name]
+ 
+         # If the weight of rewards is 0, set rewards to None
+         if self.__class__.__name__ == "URDF_0924RoughEnvCfg":
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-310.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-310.pyc
+index bb3b933..a7ba9db 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-310.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-310.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/rewards.py b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/rewards.py
+index 4c31e02..ff67a83 100644
+--- a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/rewards.py
++++ b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/rewards.py
+@@ -86,6 +86,72 @@ def joint_power(env: ManagerBasedRLEnv, asset_cfg: SceneEntityCfg = SceneEntityC
+     return reward
+ 
+ 
++from isaaclab.utils.math import quat_rotate_inverse
++
++def feet_horizontal_simple(
++    env: ManagerBasedRLEnv,
++    asset_cfg: SceneEntityCfg,
++    max_angle: float = 0.3,  # ~17 degrees
++    command_name: str = "base_velocity",
++    velocity_threshold: float = 0.1,
++) -> torch.Tensor:
++    """
++    Simplified version: Reward for keeping feet horizontal using linear penalty.
++    
++    Args:
++        env: The RL environment.
++        asset_cfg: Asset configuration containing the feet body names.
++        max_angle: Maximum allowed deviation angle in radians.
++        command_name: Name of the velocity command.
++        velocity_threshold: Minimum velocity to apply the reward.
++        
++    Returns:
++        Reward tensor for each environment.
++    """
++    # Get the robot asset
++    robot = env.scene[asset_cfg.name]
++    
++    # Get velocity commands (optional gating)
++    if hasattr(env.command_manager, command_name):
++        commands = env.command_manager.get_command(command_name)
++        is_moving = torch.norm(commands[:, :2], dim=1) > velocity_threshold
++    else:
++        is_moving = torch.ones(env.num_envs, dtype=torch.bool, device=env.device)
++    
++    # Get feet orientations
++    feet_quat_w = robot.data.body_quat_w[:, asset_cfg.body_ids, :]
++    
++    # Get foot z-axis in world coordinates (foot surface normal)
++    z_axis_local = torch.tensor([0.0, 0.0, 1.0], device=env.device).expand(
++        env.num_envs, len(asset_cfg.body_ids), 3
++    )
++    feet_z_w = quat_rotate_inverse(feet_quat_w.view(-1, 4), z_axis_local.view(-1, 3))
++    feet_z_w = feet_z_w.view(env.num_envs, len(asset_cfg.body_ids), 3)
++    
++    # Calculate angle between foot normal and world up vector
++    world_up = torch.tensor([0.0, 0.0, 1.0], device=env.device)
++    cos_angle = torch.sum(feet_z_w * world_up.expand_as(feet_z_w), dim=2)
++    cos_angle = torch.clamp(cos_angle, -1.0, 1.0)
++    
++    # Convert to deviation from horizontal
++    # When foot is horizontal, cos_angle should be close to 0
++    # When foot is vertical, cos_angle is close to ±1
++    horizontal_deviation = torch.abs(cos_angle)  # 0 = horizontal, 1 = vertical
++    
++    # Linear reward: 1 when horizontal, 0 when at max_angle
++    # horizontal_deviation of 0 = reward 1
++    # horizontal_deviation of sin(max_angle) = reward 0
++    sin_max_angle = torch.sin(torch.tensor(max_angle, device=env.device))
++    reward_per_foot = torch.clamp(1.0 - horizontal_deviation / sin_max_angle, 0.0, 1.0)
++    
++    # Average across feet
++    total_reward = torch.mean(reward_per_foot, dim=1)
++    
++    # Optional: only apply when moving
++    # total_reward = torch.where(is_moving, total_reward, torch.zeros_like(total_reward))
++    
++    return total_reward
++
+ def stand_still_without_cmd(
+     env: ManagerBasedRLEnv,
+     command_name: str,
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
+index 7fed9a1..1d045b2 100644
+--- a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
++++ b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
+@@ -631,6 +631,16 @@ class RewardsCfg:
+ 
+     upward = RewTerm(func=mdp.upward, weight=0.0)
+ 
++    feet_horizontal_simple = RewTerm(
++        func=mdp.feet_horizontal_simple,
++        weight=0.0,
++        params={
++            "asset_cfg": SceneEntityCfg("robot", body_names=".*_ankle_.*_link"),
++            "max_angle": 0.1,
++            "command_name": "base_velocity", 
++            "velocity_threshold": 0.1,
++        },
++    )
+ 
+ @configclass
+ class TerminationsCfg:
