@@ -59,21 +59,21 @@ URDF_0924_CFG = ArticulationCfg(
     ),
     # ... other configuration parameters ...
     init_state=ArticulationCfg.InitialStateCfg(
-        pos=(0.0, 0.0, 0.83),
+        pos=(0.0, 0.0, 0.88),
         joint_pos={ # 27 DOF
-            ".*_hip_pitch_joint": -0.4,
+            ".*_hip_pitch_joint": -0.1,
             ".*_hip_roll_joint": 0.0,
             ".*_hip_yaw_joint": 0.0,
-            ".*_knee_joint": 0.8,
-            ".*_ankle_pitch_joint": -0.4,
+            ".*_knee_joint": 0.3,
+            ".*_ankle_pitch_joint": -0.2,
             ".*_ankle_roll_joint": 0.0,
             
             "torso_joint": 0.0,  # torso joints
-            ".*_shoulder_pitch_joint": -0.3,
-            "right_shoulder_roll_joint": -0.2, #(right -0.2, left 0.2)
-            "left_shoulder_roll_joint": 0.2,
+            ".*_shoulder_pitch_joint": -0.0,
+            "right_shoulder_roll_joint": -0.0, #(right -0.2, left 0.2)
+            "left_shoulder_roll_joint": 0.0,
             ".*_shoulder_yaw_joint": 0.0,
-            ".*_elbow_joint": 0.1,
+            ".*_elbow_joint": 0.0,
             
             ".*_wrist_roll_joint": 0.0,
             ".*_wrist_pitch_joint": 0.0,
@@ -125,7 +125,7 @@ URDF_0924_CFG = ArticulationCfg(
         ),
         "feet": ImplicitActuatorCfg(
             effort_limit_sim=20,
-            joint_names_expr=[".*_knee_joint",".*_ankle_pitch_joint", ".*_ankle_roll_joint"],
+            joint_names_expr=[".*_ankle_pitch_joint", ".*_ankle_roll_joint"],
             stiffness=20.0,
             damping=2.0,
             armature=0.01,
