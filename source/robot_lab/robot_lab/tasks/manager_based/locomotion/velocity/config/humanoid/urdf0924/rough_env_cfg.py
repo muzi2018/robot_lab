@@ -87,9 +87,9 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.rewards.is_terminated.weight = -200.0
 
         # Root penalties
-        self.rewards.lin_vel_z_l2.weight = 0
+        self.rewards.lin_vel_z_l2.weight = 0.0
         self.rewards.ang_vel_xy_l2.weight = -0.1
-        self.rewards.flat_orientation_l2.weight = -0.2
+        self.rewards.flat_orientation_l2.weight = -0.5
         self.rewards.base_height_l2.weight = 0
         self.rewards.base_height_l2.params["target_height"] = 0
         self.rewards.base_height_l2.params["asset_cfg"].body_names = [self.base_link_name]
@@ -99,18 +99,18 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         # Joint penalties
         self.rewards.joint_torques_l2.weight = -1.5e-7
         self.rewards.joint_torques_l2.params["asset_cfg"].joint_names = [".*_hip_.*", ".*_knee_joint", ".*_ankle_.*"]
-        self.rewards.joint_vel_l2.weight = 0
+        self.rewards.joint_vel_l2.weight = 0.0
         self.rewards.joint_acc_l2.weight = -1.25e-7
-        self.rewards.joint_acc_l2.params["asset_cfg"].joint_names = [".*_hip_.*", ".*_knee_joint"]
-        self.rewards.create_joint_deviation_l1_rewterm("joint_deviation_hip_l1", -0.1, [".*hip_yaw.*", ".*hip_roll.*"])
+        self.rewards.joint_acc_l2.params["asset_cfg"].joint_names = [".*_hip_.*", ".*_knee_joint", ".*_ankle_.*"]
+        self.rewards.create_joint_deviation_l1_rewterm("joint_deviation_hip_l1", -0.15, [".*hip_yaw.*", ".*hip_roll.*"])
         self.rewards.create_joint_deviation_l1_rewterm("joint_deviation_arms_l1", -0.1, [".*shoulder.*", ".*elbow.*"])
         self.rewards.create_joint_deviation_l1_rewterm("joint_deviation_torso_l1", -0.1, ["torso_joint"])
         self.rewards.joint_pos_limits.weight = -0.5
         self.rewards.joint_vel_limits.weight = 0
         self.rewards.joint_power.weight = 0
-        self.rewards.stand_still_without_cmd.weight = 0
+        self.rewards.stand_still_without_cmd.weight = 0.3
         self.rewards.joint_pos_penalty.weight = -1.0
-        self.rewards.joint_mirror.weight = 0.1
+        self.rewards.joint_mirror.weight = 0.0
         self.rewards.joint_mirror.params["mirror_joints"] = [["left_(hip|knee|ankle).*", "right_(hip|knee|ankle).*"]]
 
         # Action penalties
@@ -131,9 +131,9 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.rewards.track_ang_vel_z_exp.func = mdp.track_ang_vel_z_world_exp
 
         # Others
-        self.rewards.feet_air_time.weight = 0.1
+        self.rewards.feet_air_time.weight = 1.75
         self.rewards.feet_air_time.func = mdp.feet_air_time_positive_biped
-        self.rewards.feet_air_time.params["threshold"] = 0.4
+        self.rewards.feet_air_time.params["threshold"] = 0.8
         self.rewards.feet_air_time.params["sensor_cfg"].body_names = [self.foot_link_name]
         self.rewards.feet_contact.weight = 0.0
         self.rewards.feet_contact.params["sensor_cfg"].body_names = [self.foot_link_name]
@@ -151,9 +151,11 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.rewards.feet_height_body.params["target_height"] = -0.2
         self.rewards.feet_height_body.params["asset_cfg"].body_names = [self.foot_link_name]
         self.rewards.upward.weight = 1.0
+        self.rewards.feet_horizontal_simple.weight = 0.5
+        self.rewards.feet_horizontal_simple.params["asset_cfg"].body_names = [self.foot_link_name]
 
         # If the weight of rewards is 0, set rewards to None
-        if self.__class__.__name__ == "UnitreeG1RoughEnvCfg":
+        if self.__class__.__name__ == "URDF_0924RoughEnvCfg":
             self.disable_zero_weight_rewards()
 
         # ------------------------------Terminations------------------------------
@@ -164,6 +166,6 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.curriculum.command_levels = None
 
         # ------------------------------Commands------------------------------
-        self.commands.base_velocity.ranges.lin_vel_x = (-1.0, 1.0)
-        self.commands.base_velocity.ranges.lin_vel_y = (-1.0, 1.0)
-        self.commands.base_velocity.ranges.ang_vel_z = (-1.0, 1.0)
+        self.commands.base_velocity.ranges.lin_vel_x = (-0.5, 0.5)
+        self.commands.base_velocity.ranges.lin_vel_y = (-0.5, 0.5)
+        self.commands.base_velocity.ranges.ang_vel_z = (-0.5, 0.5)

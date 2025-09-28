@@ -1,0 +1,17 @@
+{
+  "os":  "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python":  "CPython 3.10.18",
+  "startedAt":  "2025-09-27T08:31:02.149333Z",
+  "program":  "/home/wang/robot_lab/wandb_.py",
+  "codePath":  "wandb_.py",
+  "codePathLocal":  "wandb_.py",
+  "git":  {
+    "remote":  "git@github.com:muzi2018/robot_lab.git",
+    "commit":  "2a579de741dfd37507f1baecea02fa2f988513ee"
+  },
+  "email":  "duangsir518@163.com",
+  "root":  "/home/wang/robot_lab",
+  "host":  "ubuntu",
+  "executable":  "/home/wang/anaconda3/envs/isaaclab2.2.0/bin/python",
+  "writerId":  "tjkhidk9i4ll1fwfr71vfex1uu0rg906"
+}
