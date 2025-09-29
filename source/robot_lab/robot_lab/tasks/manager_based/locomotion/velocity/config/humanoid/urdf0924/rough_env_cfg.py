@@ -131,9 +131,9 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.rewards.track_ang_vel_z_exp.func = mdp.track_ang_vel_z_world_exp
 
         # Others
-        self.rewards.feet_air_time.weight = 1.75
+        self.rewards.feet_air_time.weight = 2.75
         self.rewards.feet_air_time.func = mdp.feet_air_time_positive_biped
-        self.rewards.feet_air_time.params["threshold"] = 0.8
+        self.rewards.feet_air_time.params["threshold"] = 1.0
         self.rewards.feet_air_time.params["sensor_cfg"].body_names = [self.foot_link_name]
         self.rewards.feet_contact.weight = 0.0
         self.rewards.feet_contact.params["sensor_cfg"].body_names = [self.foot_link_name]

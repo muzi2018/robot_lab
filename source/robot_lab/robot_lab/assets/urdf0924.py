@@ -70,8 +70,8 @@ URDF_0924_CFG = ArticulationCfg(
             
             "torso_joint": 0.0,  # torso joints
             ".*_shoulder_pitch_joint": -0.0,
-            "right_shoulder_roll_joint": -0.0, #(right -0.2, left 0.2)
-            "left_shoulder_roll_joint": 0.0,
+            "right_shoulder_roll_joint": -0.2, #(right -0.2, left 0.2)
+            "left_shoulder_roll_joint": 0.2,
             ".*_shoulder_yaw_joint": 0.0,
             ".*_elbow_joint": 0.0,
             

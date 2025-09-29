@@ -1,0 +1,41 @@
+--- git status ---
+On branch dev/walk_natural
+Your branch is up to date with 'origin/dev/walk_natural'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-310.pyc
+	modified:   source/robot_lab/robot_lab/assets/urdf0924.py
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/rsl_rl/urdf_0924_flat/2025-09-28_22-35-33/
+	outputs/2025-09-28/22-35-33/
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-310.pyc b/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-310.pyc
+index 4d9b9ec..94c9765 100644
+Binary files a/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-310.pyc and b/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-310.pyc differ
+diff --git a/source/robot_lab/robot_lab/assets/urdf0924.py b/source/robot_lab/robot_lab/assets/urdf0924.py
+index 0821ee1..a2b3f7c 100644
+--- a/source/robot_lab/robot_lab/assets/urdf0924.py
++++ b/source/robot_lab/robot_lab/assets/urdf0924.py
+@@ -70,8 +70,8 @@ URDF_0924_CFG = ArticulationCfg(
+             
+             "torso_joint": 0.0,  # torso joints
+             ".*_shoulder_pitch_joint": -0.0,
+-            "right_shoulder_roll_joint": -0.0, #(right -0.2, left 0.2)
+-            "left_shoulder_roll_joint": 0.0,
++            "right_shoulder_roll_joint": -0.2, #(right -0.2, left 0.2)
++            "left_shoulder_roll_joint": 0.2,
+             ".*_shoulder_yaw_joint": 0.0,
+             ".*_elbow_joint": 0.0,
+             
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc
+index ec1c648..0568a79 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-310.pyc differ
