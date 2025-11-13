@@ -39,5 +39,5 @@ class URDF0924FlatPPORunnerCfg(URDF0924RoughPPORunnerCfg):
     def __post_init__(self):
         super().__post_init__()
 
-        self.max_iterations = 1500
+        self.max_iterations = 15000
         self.experiment_name = "urdf_0924_flat"
