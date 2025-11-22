@@ -13,9 +13,7 @@
 import argparse
 import os
 import sys
-
 from isaaclab.app import AppLauncher
-
 # local imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import cli_args

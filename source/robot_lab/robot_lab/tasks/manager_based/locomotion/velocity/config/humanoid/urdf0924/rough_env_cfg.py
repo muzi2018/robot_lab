@@ -11,7 +11,6 @@ from robot_lab.tasks.manager_based.locomotion.velocity.velocity_env_cfg import L
 ##
 # from isaaclab_assets.robots.unitree import G1_MINIMAL_CFG  # isort: skip
 from robot_lab.assets.urdf0924 import URDF_0924_CFG  # isort: skip
-
 @configclass
 class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
     base_link_name = "pelvis"
