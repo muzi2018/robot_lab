@@ -639,6 +639,15 @@ class RewardsCfg:
         },
     )
 
+    feet_near = RewTerm(
+        func=mdp.feet_too_near,
+        weight=-1,
+        params={
+            "asset_cfg": SceneEntityCfg("robot", body_names=".*ankle_roll.*"),
+            "threshold": 0.2,
+        },
+    )
+
 @configclass
 class TerminationsCfg:
     """Termination terms for the MDP."""

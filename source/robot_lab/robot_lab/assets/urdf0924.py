@@ -39,7 +39,7 @@ URDF_0924_CFG = ArticulationCfg(
             max_depenetration_velocity=10.0,
         ),
         articulation_props=sim_utils.ArticulationRootPropertiesCfg(
-            enabled_self_collisions=False, solver_position_iteration_count=4, solver_velocity_iteration_count=0
+            enabled_self_collisions=False, solver_position_iteration_count=4, solver_velocity_iteration_count=0 # parameter_wwj
         ),
         # # for xacro
         # func=spawn_from_lazy_usd,
@@ -70,7 +70,7 @@ URDF_0924_CFG = ArticulationCfg(
             
             "torso_joint": 0.0,  # torso joints
             ".*_shoulder_pitch_joint": -0.0,
-            "right_shoulder_roll_joint": -0.2, #(right -0.2, left 0.2)
+            "right_shoulder_roll_joint": -0.2, # (right -0.2, left 0.2)
             "left_shoulder_roll_joint": 0.2,
             ".*_shoulder_yaw_joint": 0.0,
             ".*_elbow_joint": 0.0,
