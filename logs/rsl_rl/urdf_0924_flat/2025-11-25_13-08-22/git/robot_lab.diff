@@ -1,0 +1,137 @@
+--- git status ---
+On branch dev/humanoid_run
+Your branch is up to date with 'origin/dev/humanoid_run'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .vscode/settings.json
+	modified:   scripts/reinforcement_learning/__pycache__/rl_utils.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/assets/descriptions/urdf0924/urdf/urdf0924.urdf
+	modified:   source/robot_lab/robot_lab/assets/urdf0924.py
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/rewards.py
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/rsl_rl/urdf_0924_flat/2025-11-24_13-47-45/
+	logs/rsl_rl/urdf_0924_flat/2025-11-25_03-14-12/
+	logs/rsl_rl/urdf_0924_flat/2025-11-25_03-29-50/
+	logs/rsl_rl/urdf_0924_flat/2025-11-25_13-08-22/
+	outputs/2025-11-24/
+	outputs/2025-11-25/
+	source/robot_lab/robot_lab/assets/descriptions/urdf0924.zip
+	source/robot_lab/robot_lab/assets/descriptions/urdf0924/urdf0924.xml
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/.vscode/settings.json b/.vscode/settings.json
+index 07bb747..8877447 100644
+--- a/.vscode/settings.json
++++ b/.vscode/settings.json
+@@ -731,5 +731,6 @@
+     ],
+     "python-envs.defaultEnvManager": "ms-python.python:conda",
+     "python-envs.defaultPackageManager": "ms-python.python:conda",
+-    "python-envs.pythonProjects": []
++    "python-envs.pythonProjects": [],
++    "github.copilot.chat.codeGeneration.useInstructionFiles": true
+ }
+diff --git a/scripts/reinforcement_learning/__pycache__/rl_utils.cpython-311.pyc b/scripts/reinforcement_learning/__pycache__/rl_utils.cpython-311.pyc
+index 4bd74ea..298ff2a 100644
+Binary files a/scripts/reinforcement_learning/__pycache__/rl_utils.cpython-311.pyc and b/scripts/reinforcement_learning/__pycache__/rl_utils.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-311.pyc b/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-311.pyc
+index 9f6784f..5bc84be 100644
+Binary files a/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-311.pyc and b/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/assets/descriptions/urdf0924/urdf/urdf0924.urdf b/source/robot_lab/robot_lab/assets/descriptions/urdf0924/urdf/urdf0924.urdf
+index 7f000d2..aba1d4e 100755
+--- a/source/robot_lab/robot_lab/assets/descriptions/urdf0924/urdf/urdf0924.urdf
++++ b/source/robot_lab/robot_lab/assets/descriptions/urdf0924/urdf/urdf0924.urdf
+@@ -341,7 +341,7 @@
+         xyz="0.055801 -0.0029808 -0.04964"
+         rpy="0 0 0" />
+       <mass
+-        value="0.19236845" />
++        value="1.1728" />
+       <inertia
+         ixx="0.00154297"
+         ixy="-0.0001946"
+diff --git a/source/robot_lab/robot_lab/assets/urdf0924.py b/source/robot_lab/robot_lab/assets/urdf0924.py
+index a2b3f7c..d3c95d4 100644
+--- a/source/robot_lab/robot_lab/assets/urdf0924.py
++++ b/source/robot_lab/robot_lab/assets/urdf0924.py
+@@ -39,7 +39,7 @@ URDF_0924_CFG = ArticulationCfg(
+             max_depenetration_velocity=10.0,
+         ),
+         articulation_props=sim_utils.ArticulationRootPropertiesCfg(
+-            enabled_self_collisions=False, solver_position_iteration_count=4, solver_velocity_iteration_count=0
++            enabled_self_collisions=False, solver_position_iteration_count=4, solver_velocity_iteration_count=0 # parameter_wwj
+         ),
+         # # for xacro
+         # func=spawn_from_lazy_usd,
+@@ -70,7 +70,7 @@ URDF_0924_CFG = ArticulationCfg(
+             
+             "torso_joint": 0.0,  # torso joints
+             ".*_shoulder_pitch_joint": -0.0,
+-            "right_shoulder_roll_joint": -0.2, #(right -0.2, left 0.2)
++            "right_shoulder_roll_joint": -0.2, # (right -0.2, left 0.2)
+             "left_shoulder_roll_joint": 0.2,
+             ".*_shoulder_yaw_joint": 0.0,
+             ".*_elbow_joint": 0.0,
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc
+index 84ff059..b339a4b 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-311.pyc
+index 438bfa9..51ba913 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-311.pyc
+index 3ebabfc..ec7f1d4 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc
+index 801183e..8536b4c 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/rewards.py b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/rewards.py
+index b118689..81e0903 100644
+--- a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/rewards.py
++++ b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/rewards.py
+@@ -743,3 +743,12 @@ def flat_orientation_l2(env: ManagerBasedRLEnv, asset_cfg: SceneEntityCfg = Scen
+     reward = torch.sum(torch.square(asset.data.projected_gravity_b[:, :2]), dim=1)
+     reward *= torch.clamp(-env.scene["robot"].data.projected_gravity_b[:, 2], 0, 0.7) / 0.7
+     return reward
++
++
++def feet_too_near(
++    env: ManagerBasedRLEnv, threshold: float = 0.2, asset_cfg: SceneEntityCfg = SceneEntityCfg("robot")
++) -> torch.Tensor:
++    asset: Articulation = env.scene[asset_cfg.name]
++    feet_pos = asset.data.body_pos_w[:, asset_cfg.body_ids, :]
++    distance = torch.norm(feet_pos[:, 0] - feet_pos[:, 1], dim=-1)
++    return (threshold - distance).clamp(min=0)
+\ No newline at end of file
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
+index 921dfbc..a7c7d6e 100644
+--- a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
++++ b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
+@@ -639,6 +639,15 @@ class RewardsCfg:
+         },
+     )
+ 
++    feet_near = RewTerm(
++        func=mdp.feet_too_near,
++        weight=-1,
++        params={
++            "asset_cfg": SceneEntityCfg("robot", body_names=".*ankle_roll.*"),
++            "threshold": 0.2,
++        },
++    )
++
+ @configclass
+ class TerminationsCfg:
+     """Termination terms for the MDP."""
