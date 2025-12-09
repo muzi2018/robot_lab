@@ -60,24 +60,14 @@ SEAG_2_URDF_CFG = ArticulationCfg(
     # ... other configuration parameters ...
     init_state=ArticulationCfg.InitialStateCfg(
         pos=(0.0, 0.0, 0.88),
-        joint_pos={ # 27 DOF
-            ".*_hip_pitch_joint": -0.1,
-            ".*_hip_roll_joint": 0.0,
-            ".*_hip_yaw_joint": 0.0,
-            ".*_knee_joint": 0.3,
-            ".*_ankle_pitch_joint": -0.2,
-            ".*_ankle_roll_joint": 0.0,
+        joint_pos={ # 12 DOF
+            ".*_hip_pitch_Joint": -0.1,
+            ".*_hip_roll_Joint": 0.0,
+            ".*_hip_yaw_Joint": 0.0,
+            ".*_knee_pitch_Joint": 0.3,
+            ".*_ankle_pitch_Joint": -0.2,
+            ".*_ankle_roll_Joint": 0.0,
             
-            "torso_joint": 0.0,  # torso joints
-            ".*_shoulder_pitch_joint": -0.0,
-            "right_shoulder_roll_joint": -0.2, # (right -0.2, left 0.2)
-            "left_shoulder_roll_joint": 0.2,
-            ".*_shoulder_yaw_joint": 0.0,
-            ".*_elbow_joint": 0.0,
-            
-            ".*_wrist_roll_joint": 0.0,
-            ".*_wrist_pitch_joint": 0.0,
-            ".*_wrist_yaw_joint": 0.0,
         },
         joint_vel={".*": 0.0},
     ),
@@ -85,68 +75,36 @@ SEAG_2_URDF_CFG = ArticulationCfg(
     actuators={
         "legs": ImplicitActuatorCfg(
             joint_names_expr=[
-                ".*_hip_pitch_joint",
-                ".*_hip_roll_joint",
-                ".*_hip_yaw_joint",
-                ".*_knee_joint",
+                ".*_hip_pitch_Joint",
+                ".*_hip_roll_Joint",
+                ".*_hip_yaw_Joint",
+                ".*_knee_pitch_Joint",
             ],
             effort_limit_sim=300,
             velocity_limit_sim=100.0,
             stiffness={
-                ".*_hip_pitch_joint": 200.0,
-                ".*_hip_roll_joint": 150.0,
-                ".*_hip_yaw_joint": 150.0,
-                ".*_knee_joint": 200.0,
+                ".*_hip_pitch_Joint": 200.0,
+                ".*_hip_roll_Joint": 150.0,
+                ".*_hip_yaw_Joint": 150.0,
+                ".*_knee_pitch_Joint": 200.0,
             },
             damping={
-                ".*_hip_pitch_joint": 5.0,
-                ".*_hip_roll_joint": 5.0,
-                ".*_hip_yaw_joint": 5.0,
-                ".*_knee_joint": 5.0,
+                ".*_hip_pitch_Joint": 5.0,
+                ".*_hip_roll_Joint": 5.0,
+                ".*_hip_yaw_Joint": 5.0,
+                ".*_knee_pitch_Joint": 5.0,
             },
             armature={
                 ".*_hip_.*": 0.01,
-                ".*_knee_joint": 0.01,
-            },
-        ),
-        "waist": ImplicitActuatorCfg(
-            joint_names_expr=["torso_joint"],
-            effort_limit_sim=300,
-            velocity_limit_sim=100.0,
-            stiffness={
-                "torso_joint": 200.0,
-            },
-            damping={
-                "torso_joint": 5.0,
-            },
-            armature={
-                "torso_joint": 0.01,
+                ".*_knee_pitch_Joint": 0.01,
             },
         ),
         "feet": ImplicitActuatorCfg(
             effort_limit_sim=20,
-            joint_names_expr=[".*_ankle_pitch_joint", ".*_ankle_roll_joint"],
+            joint_names_expr=[".*_ankle_pitch_Joint", ".*_ankle_roll_Joint"],
             stiffness=20.0,
             damping=2.0,
             armature=0.01,
-        ),
-        "arms": ImplicitActuatorCfg(
-            joint_names_expr=[
-                ".*_shoulder_pitch_joint",
-                ".*_shoulder_roll_joint",
-                ".*_shoulder_yaw_joint",
-                ".*_elbow_joint",
-                ".*_wrist_.*",
-            ],
-            effort_limit_sim=300,
-            velocity_limit_sim=100.0,
-            stiffness=40.0,
-            damping=10.0,
-            armature={
-                ".*_shoulder_.*": 0.01,
-                ".*_elbow_.*": 0.01,
-                ".*_wrist_.*": 0.01,
-            },
         ),
     },
 )

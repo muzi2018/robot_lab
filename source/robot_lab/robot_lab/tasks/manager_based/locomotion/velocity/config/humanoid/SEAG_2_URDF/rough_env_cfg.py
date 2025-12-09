@@ -13,41 +13,22 @@ from robot_lab.tasks.manager_based.locomotion.velocity.velocity_env_cfg import L
 from robot_lab.assets.SEAG_2_URDF import SEAG_2_URDF_CFG  # isort: skip
 @configclass
 class SEAG_2_URDFRoughEnvCfg(LocomotionVelocityRoughEnvCfg):
-    base_link_name = "pelvis"
-    foot_link_name = ".*_ankle_roll_link"
+    base_link_name = "base_link"
+    foot_link_name = ".*_ankle_roll_Link"
     # fmt: off
     joint_names = [
-        "left_hip_pitch_joint",          # 0  L_LEG_HIP_PITCH
-        "left_hip_roll_joint",           # 1  L_LEG_HIP_ROLL
-        "left_hip_yaw_joint",            # 2  L_LEG_HIP_YAW
-        "left_knee_joint",               # 3  L_LEG_KNEE
-        "left_ankle_pitch_joint",        # 4  L_LEG_ANKLE_B
-        "left_ankle_roll_joint",         # 5  L_LEG_ANKLE_A
-        "right_hip_pitch_joint",         # 6  R_LEG_HIP_PITCH
-        "right_hip_roll_joint",          # 7  R_LEG_HIP_ROLL
-        "right_hip_yaw_joint",           # 8  R_LEG_HIP_YAW
-        "right_knee_joint",              # 9  R_LEG_KNEE
-        "right_ankle_pitch_joint",       # 10 R_LEG_ANKLE_B
-        "right_ankle_roll_joint",        # 11 R_LEG_ANKLE_A
-        
-        "torso_joint",                   # 12 WAIST_YAW
-        
-        "left_shoulder_pitch_joint",     # 13 L_SHOULDER_PITCH
-        "left_shoulder_roll_joint",      # 14 L_SHOULDER_ROLL
-        "left_shoulder_yaw_joint",       # 15 L_SHOULDER_YAW
-        "left_elbow_joint",              # 16 L_ELBOW
-        
-        "right_shoulder_pitch_joint",    # 17 R_SHOULDER_PITCH
-        "right_shoulder_roll_joint",     # 18 R_SHOULDER_ROLL
-        "right_shoulder_yaw_joint",      # 19 R_SHOULDER_YAW
-        "right_elbow_joint",             # 20 R_ELBOW
-        
-        "left_wrist_yaw_joint",         # 21 L_WRIST_YAW           
-        "left_wrist_pitch_joint",       # 22 L_WRIST_PITCH
-        "left_wrist_roll_joint",        # 23 L_WRIST_ROLL
-        "right_wrist_yaw_joint",        # 24 R_WRIST_YAW
-        "right_wrist_pitch_joint",      # 25 R_WRIST_PITCH
-        "right_wrist_roll_joint",       # 26 R_WRIST_ROLL
+        "L_hip_pitch_Joint",          # 0  L_LEG_HIP_PITCH
+        "L_hip_roll_Joint",           # 1  L_LEG_HIP_ROLL
+        "L_hip_yaw_Joint",            # 2  L_LEG_HIP_YAW
+        "L_knee_pitch_Joint",               # 3  L_LEG_KNEE
+        "L_ankle_pitch_Joint",        # 4  L_LEG_ANKLE_B
+        "L_ankle_roll_Joint",         # 5  L_LEG_ANKLE_A
+        "R_hip_pitch_Joint",         # 6  R_LEG_HIP_PITCH
+        "R_hip_roll_Joint",          # 7  R_LEG_HIP_ROLL
+        "R_hip_yaw_Joint",           # 8  R_LEG_HIP_YAW
+        "R_knee_pitch_Joint",              # 9  R_LEG_KNEE
+        "R_ankle_pitch_Joint",       # 10 R_LEG_ANKLE_B
+        "R_ankle_roll_Joint",        # 11 R_LEG_ANKLE_A
     ]
     # fmt: on
 
@@ -97,25 +78,25 @@ class SEAG_2_URDFRoughEnvCfg(LocomotionVelocityRoughEnvCfg):
 
         # Joint penalties
         self.rewards.joint_torques_l2.weight = -1.5e-7
-        self.rewards.joint_torques_l2.params["asset_cfg"].joint_names = [".*_hip_.*", ".*_knee_joint", ".*_ankle_.*"]
+        self.rewards.joint_torques_l2.params["asset_cfg"].joint_names = [".*_hip_.*", ".*_knee_pitch_Joint", ".*_ankle_.*"]
         self.rewards.joint_vel_l2.weight = 0.0
         self.rewards.joint_acc_l2.weight = -1.25e-7
-        self.rewards.joint_acc_l2.params["asset_cfg"].joint_names = [".*_hip_.*", ".*_knee_joint", ".*_ankle_.*"]
+        self.rewards.joint_acc_l2.params["asset_cfg"].joint_names = [".*_hip_.*", ".*_knee_pitch_Joint", ".*_ankle_.*"]
         self.rewards.create_joint_deviation_l1_rewterm("joint_deviation_hip_l1", -0.15, [".*hip_yaw.*", ".*hip_roll.*"])
-        self.rewards.create_joint_deviation_l1_rewterm("joint_deviation_arms_l1", -0.1, [".*shoulder.*", ".*elbow.*"])
-        self.rewards.create_joint_deviation_l1_rewterm("joint_deviation_torso_l1", -0.1, ["torso_joint"])
+        # self.rewards.create_joint_deviation_l1_rewterm("joint_deviation_arms_l1", -0.1, [".*shoulder.*", ".*elbow.*"])
+        # self.rewards.create_joint_deviation_l1_rewterm("joint_deviation_torso_l1", -0.1, ["torso_joint"])
         self.rewards.joint_pos_limits.weight = -0.5
         self.rewards.joint_vel_limits.weight = 0
         self.rewards.joint_power.weight = 0
         self.rewards.stand_still_without_cmd.weight = 0.3
         self.rewards.joint_pos_penalty.weight = -1.0
         self.rewards.joint_mirror.weight = 0.0
-        self.rewards.joint_mirror.params["mirror_joints"] = [["left_(hip|knee|ankle).*", "right_(hip|knee|ankle).*"]]
+        self.rewards.joint_mirror.params["mirror_joints"] = [["L_(hip|knee|ankle).*", "R_(hip|knee|ankle).*"]]
 
         # Action penalties
         self.rewards.action_rate_l2.weight = -0.005
         self.rewards.action_mirror.weight = 0
-        self.rewards.action_mirror.params["mirror_joints"] = [["left_(hip|knee|ankle).*", "right_(hip|knee|ankle).*"]]
+        self.rewards.action_mirror.params["mirror_joints"] = [["L_(hip|knee|ankle).*", "R_(hip|knee|ankle).*"]]
 
         # Contact sensor
         self.rewards.undesired_contacts.weight = 0
@@ -154,7 +135,7 @@ class SEAG_2_URDFRoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.rewards.feet_horizontal_simple.params["asset_cfg"].body_names = [self.foot_link_name]
 
         # If the weight of rewards is 0, set rewards to None
-        if self.__class__.__name__ == "URDF_0924RoughEnvCfg":
+        if self.__class__.__name__ == "SEAG_2_URDFRoughEnvCfg":
             self.disable_zero_weight_rewards()
 
         # ------------------------------Terminations------------------------------
