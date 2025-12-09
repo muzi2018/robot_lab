@@ -1,0 +1,373 @@
+--- git status ---
+On branch dev/humanoid_run
+Your branch is up to date with 'origin/dev/humanoid_run'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   scripts/reinforcement_learning/rsl_rl/__pycache__/cli_args.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/__pycache__/ui_extension_example.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/assets/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/assets/urdf0924.py
+	modified:   source/robot_lab/robot_lab/assets/utils/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/assets/utils/__pycache__/usd_converter.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/direct/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/direct/g1_amp/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/direct/g1_amp/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_loader.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_viewer.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/booster_t1/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/booster_t1/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t1/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t1/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t2/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t2/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_gen1/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_gen1/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_z1/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_z1/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/roboparty_atom01/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/roboparty_atom01/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/robotera_xbot/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/robotera_xbot/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_h1/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_h1/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/unitree_a1_handstand/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/unitree_a1_handstand/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/anymal_d/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/anymal_d/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/deeprobotics_lite3/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/deeprobotics_lite3/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/magiclab_magicdog/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/magiclab_magicdog/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_a1/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_a1/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_b2/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_b2/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_go2/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_go2/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/zsibot_zsl1/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/zsibot_zsl1/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/ddtrobot_tita/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/ddtrobot_tita/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/deeprobotics_m20/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/deeprobotics_m20/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/magiclab_magicdogw/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/magiclab_magicdogw/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_b2w/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_b2w/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_go2w/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_go2w/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/zsibot_zsl1w/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/zsibot_zsl1w/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/commands.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/curriculums.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/events.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/observations.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/rsl_rl/urdf_0924_flat/2025-11-25_13-29-47/
+	outputs/2025-11-25/
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/scripts/reinforcement_learning/rsl_rl/__pycache__/cli_args.cpython-311.pyc b/scripts/reinforcement_learning/rsl_rl/__pycache__/cli_args.cpython-311.pyc
+index 292d903..f1e11f4 100644
+Binary files a/scripts/reinforcement_learning/rsl_rl/__pycache__/cli_args.cpython-311.pyc and b/scripts/reinforcement_learning/rsl_rl/__pycache__/cli_args.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/__pycache__/__init__.cpython-311.pyc
+index 967f372..53d933a 100644
+Binary files a/source/robot_lab/robot_lab/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/__pycache__/ui_extension_example.cpython-311.pyc b/source/robot_lab/robot_lab/__pycache__/ui_extension_example.cpython-311.pyc
+index beee8df..f31d9b5 100644
+Binary files a/source/robot_lab/robot_lab/__pycache__/ui_extension_example.cpython-311.pyc and b/source/robot_lab/robot_lab/__pycache__/ui_extension_example.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/assets/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/assets/__pycache__/__init__.cpython-311.pyc
+index dca27fe..a6e3afe 100644
+Binary files a/source/robot_lab/robot_lab/assets/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/assets/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-311.pyc b/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-311.pyc
+index 9f6784f..a5655cc 100644
+Binary files a/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-311.pyc and b/source/robot_lab/robot_lab/assets/__pycache__/urdf0924.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/assets/urdf0924.py b/source/robot_lab/robot_lab/assets/urdf0924.py
+index d3c95d4..f58f878 100644
+--- a/source/robot_lab/robot_lab/assets/urdf0924.py
++++ b/source/robot_lab/robot_lab/assets/urdf0924.py
+@@ -24,7 +24,7 @@ URDF_0924_CFG = ArticulationCfg(
+         # for urdf
+         func=spawn_from_lazy_usd,
+         usd_path=urdf_to_usd(  # type: ignore
+-            file_path=f"/home/wang/robot_lab/source/robot_lab/robot_lab/assets/descriptions/urdf0924/urdf/urdf0924.urdf",
++            file_path=f"/home/han/robot_lab/source/robot_lab/robot_lab/assets/descriptions/urdf0924/urdf/urdf0924.urdf",
+             merge_joints=True,
+             fix_base=False,
+         ),
+diff --git a/source/robot_lab/robot_lab/assets/utils/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/assets/utils/__pycache__/__init__.cpython-311.pyc
+index a0aed4c..552ca59 100644
+Binary files a/source/robot_lab/robot_lab/assets/utils/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/assets/utils/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/assets/utils/__pycache__/usd_converter.cpython-311.pyc b/source/robot_lab/robot_lab/assets/utils/__pycache__/usd_converter.cpython-311.pyc
+index fea3407..44af566 100644
+Binary files a/source/robot_lab/robot_lab/assets/utils/__pycache__/usd_converter.cpython-311.pyc and b/source/robot_lab/robot_lab/assets/utils/__pycache__/usd_converter.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/__pycache__/__init__.cpython-311.pyc
+index dce91b2..3e17844 100644
+Binary files a/source/robot_lab/robot_lab/tasks/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/direct/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/direct/__pycache__/__init__.cpython-311.pyc
+index d200d37..8d973f0 100644
+Binary files a/source/robot_lab/robot_lab/tasks/direct/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/direct/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/direct/g1_amp/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/direct/g1_amp/__pycache__/__init__.cpython-311.pyc
+index 56679d0..86dab9c 100644
+Binary files a/source/robot_lab/robot_lab/tasks/direct/g1_amp/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/direct/g1_amp/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/direct/g1_amp/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/direct/g1_amp/agents/__pycache__/__init__.cpython-311.pyc
+index 25bf52e..8aa3199 100644
+Binary files a/source/robot_lab/robot_lab/tasks/direct/g1_amp/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/direct/g1_amp/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/__init__.cpython-311.pyc
+index 2150cf4..aea1c7a 100644
+Binary files a/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_loader.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_loader.cpython-311.pyc
+index 5316391..8cccd0a 100644
+Binary files a/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_loader.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_loader.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_viewer.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_viewer.cpython-311.pyc
+index b3b3e3b..aa3daeb 100644
+Binary files a/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_viewer.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_viewer.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/__pycache__/__init__.cpython-311.pyc
+index e878fa8..a5a4090 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/__pycache__/__init__.cpython-311.pyc
+index 7dcfd8f..cdfe3fe 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/__init__.cpython-311.pyc
+index f803c9c..2773924 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc
+index 84ff059..91d8df0 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/__pycache__/__init__.cpython-311.pyc
+index 368d838..7e05722 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/__pycache__/__init__.cpython-311.pyc
+index c50788b..78a4404 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/booster_t1/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/booster_t1/__pycache__/__init__.cpython-311.pyc
+index 0a9fba0..3b75c53 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/booster_t1/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/booster_t1/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/booster_t1/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/booster_t1/agents/__pycache__/__init__.cpython-311.pyc
+index e4f5d27..d1c0a3e 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/booster_t1/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/booster_t1/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t1/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t1/__pycache__/__init__.cpython-311.pyc
+index 70db8d0..6ea2641 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t1/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t1/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t1/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t1/agents/__pycache__/__init__.cpython-311.pyc
+index 9534c53..a3c71c0 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t1/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t1/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t2/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t2/__pycache__/__init__.cpython-311.pyc
+index a4c04e6..43656bb 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t2/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t2/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t2/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t2/agents/__pycache__/__init__.cpython-311.pyc
+index 18f55ce..ea806ea 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t2/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/fftai_gr1t2/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_gen1/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_gen1/__pycache__/__init__.cpython-311.pyc
+index 6f3a154..af19fb3 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_gen1/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_gen1/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_gen1/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_gen1/agents/__pycache__/__init__.cpython-311.pyc
+index 0c28197..cd28b55 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_gen1/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_gen1/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_z1/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_z1/__pycache__/__init__.cpython-311.pyc
+index 2fe2487..2629529 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_z1/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_z1/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_z1/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_z1/agents/__pycache__/__init__.cpython-311.pyc
+index ddc598c..5a6d679 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_z1/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/magiclab_magicbot_z1/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/__pycache__/__init__.cpython-311.pyc
+index b88210d..cccb6b7 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/agents/__pycache__/__init__.cpython-311.pyc
+index 36b8d85..2e81194 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/openloong_loong/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/roboparty_atom01/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/roboparty_atom01/__pycache__/__init__.cpython-311.pyc
+index 1bd744e..00cad54 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/roboparty_atom01/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/roboparty_atom01/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/roboparty_atom01/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/roboparty_atom01/agents/__pycache__/__init__.cpython-311.pyc
+index c258216..1fe0935 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/roboparty_atom01/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/roboparty_atom01/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/robotera_xbot/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/robotera_xbot/__pycache__/__init__.cpython-311.pyc
+index d0783a6..64297b2 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/robotera_xbot/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/robotera_xbot/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/robotera_xbot/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/robotera_xbot/agents/__pycache__/__init__.cpython-311.pyc
+index 81558e6..a63e639 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/robotera_xbot/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/robotera_xbot/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/__pycache__/__init__.cpython-311.pyc
+index fc8dd60..6543fa4 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/agents/__pycache__/__init__.cpython-311.pyc
+index fbe15dd..5ca3f16 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_g1/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_h1/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_h1/__pycache__/__init__.cpython-311.pyc
+index 139830f..e6f54bb 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_h1/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_h1/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_h1/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_h1/agents/__pycache__/__init__.cpython-311.pyc
+index f6453a2..d574e66 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_h1/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/unitree_h1/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/__init__.cpython-311.pyc
+index 380c334..3334baf 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-311.pyc
+index 438bfa9..94d7519 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/flat_env_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-311.pyc
+index 3ebabfc..89d212e 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/__pycache__/rough_env_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/__init__.cpython-311.pyc
+index de97fd6..cead33a 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-311.pyc
+index 0220ccc..dcdb3bf 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/__pycache__/__init__.cpython-311.pyc
+index ba5ecf4..88efca9 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/unitree_a1_handstand/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/unitree_a1_handstand/__pycache__/__init__.cpython-311.pyc
+index 1817c74..506956b 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/unitree_a1_handstand/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/unitree_a1_handstand/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/unitree_a1_handstand/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/unitree_a1_handstand/agents/__pycache__/__init__.cpython-311.pyc
+index 9710e15..617f115 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/unitree_a1_handstand/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/others/unitree_a1_handstand/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/__pycache__/__init__.cpython-311.pyc
+index df1154d..8485b84 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/anymal_d/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/anymal_d/__pycache__/__init__.cpython-311.pyc
+index 5e72b50..5ba5f95 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/anymal_d/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/anymal_d/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/anymal_d/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/anymal_d/agents/__pycache__/__init__.cpython-311.pyc
+index 162e04d..c3d45fb 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/anymal_d/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/anymal_d/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/deeprobotics_lite3/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/deeprobotics_lite3/__pycache__/__init__.cpython-311.pyc
+index 82cea55..5b5ea59 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/deeprobotics_lite3/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/deeprobotics_lite3/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/deeprobotics_lite3/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/deeprobotics_lite3/agents/__pycache__/__init__.cpython-311.pyc
+index 3111cbd..43a1fd9 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/deeprobotics_lite3/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/deeprobotics_lite3/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/magiclab_magicdog/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/magiclab_magicdog/__pycache__/__init__.cpython-311.pyc
+index 1300ec2..437b673 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/magiclab_magicdog/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/magiclab_magicdog/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/magiclab_magicdog/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/magiclab_magicdog/agents/__pycache__/__init__.cpython-311.pyc
+index 080de5d..122dd44 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/magiclab_magicdog/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/magiclab_magicdog/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_a1/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_a1/__pycache__/__init__.cpython-311.pyc
+index 90f4d7b..cefd98c 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_a1/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_a1/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_a1/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_a1/agents/__pycache__/__init__.cpython-311.pyc
+index 8e64f00..20f5689 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_a1/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_a1/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_b2/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_b2/__pycache__/__init__.cpython-311.pyc
+index 7b82779..4b5e0f5 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_b2/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_b2/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_b2/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_b2/agents/__pycache__/__init__.cpython-311.pyc
+index 43c6a7a..8901f96 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_b2/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_b2/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_go2/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_go2/__pycache__/__init__.cpython-311.pyc
+index 6140799..7dd1bdb 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_go2/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_go2/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_go2/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_go2/agents/__pycache__/__init__.cpython-311.pyc
+index 4dbc8da..cde964c 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_go2/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/unitree_go2/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/zsibot_zsl1/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/zsibot_zsl1/__pycache__/__init__.cpython-311.pyc
+index d8ac458..639afe0 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/zsibot_zsl1/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/zsibot_zsl1/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/zsibot_zsl1/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/zsibot_zsl1/agents/__pycache__/__init__.cpython-311.pyc
+index 3323b68..4cf8ae2 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/zsibot_zsl1/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/quadruped/zsibot_zsl1/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/__pycache__/__init__.cpython-311.pyc
+index e0da618..dd5dd76 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/ddtrobot_tita/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/ddtrobot_tita/__pycache__/__init__.cpython-311.pyc
+index 4da8042..8ce396f 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/ddtrobot_tita/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/ddtrobot_tita/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/ddtrobot_tita/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/ddtrobot_tita/agents/__pycache__/__init__.cpython-311.pyc
+index 009ef90..7bc19cb 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/ddtrobot_tita/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/ddtrobot_tita/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/deeprobotics_m20/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/deeprobotics_m20/__pycache__/__init__.cpython-311.pyc
+index e8a9f30..8bf8341 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/deeprobotics_m20/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/deeprobotics_m20/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/deeprobotics_m20/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/deeprobotics_m20/agents/__pycache__/__init__.cpython-311.pyc
+index dc16e74..97b361b 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/deeprobotics_m20/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/deeprobotics_m20/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/magiclab_magicdogw/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/magiclab_magicdogw/__pycache__/__init__.cpython-311.pyc
+index 6b700f5..bc93243 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/magiclab_magicdogw/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/magiclab_magicdogw/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/magiclab_magicdogw/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/magiclab_magicdogw/agents/__pycache__/__init__.cpython-311.pyc
+index b85145e..bec1638 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/magiclab_magicdogw/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/magiclab_magicdogw/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_b2w/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_b2w/__pycache__/__init__.cpython-311.pyc
+index f12e591..3388d68 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_b2w/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_b2w/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_b2w/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_b2w/agents/__pycache__/__init__.cpython-311.pyc
+index 3141dd1..a74ef23 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_b2w/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_b2w/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_go2w/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_go2w/__pycache__/__init__.cpython-311.pyc
+index efaa07c..06254d0 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_go2w/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_go2w/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_go2w/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_go2w/agents/__pycache__/__init__.cpython-311.pyc
+index 1f58dbf..326cca1 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_go2w/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/unitree_go2w/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/zsibot_zsl1w/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/zsibot_zsl1w/__pycache__/__init__.cpython-311.pyc
+index 198a0f3..559212e 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/zsibot_zsl1w/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/zsibot_zsl1w/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/zsibot_zsl1w/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/zsibot_zsl1w/agents/__pycache__/__init__.cpython-311.pyc
+index 3224455..4eb7d2f 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/zsibot_zsl1w/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/wheeled/zsibot_zsl1w/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/__init__.cpython-311.pyc
+index cddef23..92d3b10 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/commands.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/commands.cpython-311.pyc
+index eaed2f2..236eb60 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/commands.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/commands.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/curriculums.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/curriculums.cpython-311.pyc
+index 9c75352..d64f15a 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/curriculums.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/curriculums.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/events.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/events.cpython-311.pyc
+index e9122ff..b2ddb0e 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/events.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/events.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/observations.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/observations.cpython-311.pyc
+index a83d28b..f87114f 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/observations.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/observations.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc
+index 801183e..f951a27 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
+index a7c7d6e..b87c5ac 100644
+--- a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
++++ b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/velocity_env_cfg.py
+@@ -644,7 +644,7 @@ class RewardsCfg:
+         weight=-1,
+         params={
+             "asset_cfg": SceneEntityCfg("robot", body_names=".*ankle_roll.*"),
+-            "threshold": 0.2,
++            "threshold": 0.4,
+         },
+     )
+ 

@@ -34,7 +34,7 @@
             "name": "Python: Play Environment",
             "type": "debugpy",
             "request": "launch",
-            "args" : ["--task", "Isaac-Reach-Franka-v0", "--num_envs", "32"],
+            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-URDF0924-v0", "--keyboard", "--checkpoint=/home/wang/workspace/robot_lab/outputs/2025-11-25_13-29-47/model_9999.pt"],
             "program": "${workspaceFolder}/scripts/reinforcement_learning/rsl_rl/play.py",
             "console": "integratedTerminal"
         },
