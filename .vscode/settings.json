@@ -723,11 +723,11 @@
         "${workspaceFolder}/source/robot_lab",
 
 
-        "${workspaceFolder}/../IsaacLab2.2.0/source/isaaclab_tasks",
-        "${workspaceFolder}/../IsaacLab2.2.0/source/isaaclab",
-        "${workspaceFolder}/../IsaacLab2.2.0/source/isaaclab_assets",
-        "${workspaceFolder}/../IsaacLab2.2.0/source/isaaclab_mimic",
-        "${workspaceFolder}/../IsaacLab2.2.0/source/isaaclab_rl"        
+        "${workspaceFolder}/../IsaacLab/source/isaaclab_tasks",
+        "${workspaceFolder}/../IsaacLab/source/isaaclab",
+        "${workspaceFolder}/../IsaacLab/source/isaaclab_assets",
+        "${workspaceFolder}/../IsaacLab/source/isaaclab_mimic",
+        "${workspaceFolder}/../IsaacLab/source/isaaclab_rl"        
     ],
     "python-envs.defaultEnvManager": "ms-python.python:conda",
     "python-envs.defaultPackageManager": "ms-python.python:conda",

@@ -1,0 +1,69 @@
+--- git status ---
+On branch dev/SEAG_2_URDF
+Your branch is up to date with 'origin/dev/SEAG_2_URDF'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .vscode/launch.json
+	modified:   .vscode/settings.json
+	modified:   logs/rsl_rl/SEAG_2_URDF_rough/2025-12-10_01-42-37/exported/policy.pt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/rsl_rl/SEAG_2_URDF_flat/2025-12-11_14-42-34/
+	logs/rsl_rl/SEAG_2_URDF_rough/2025-12-11_14-40-25/
+	outputs/2025-12-11/14-39-32/
+	outputs/2025-12-11/14-40-25/
+	outputs/2025-12-11/14-42-34/
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/.vscode/launch.json b/.vscode/launch.json
+index 4c4a87e..dfb85b5 100644
+--- a/.vscode/launch.json
++++ b/.vscode/launch.json
+@@ -26,7 +26,7 @@
+             "name": "Python: Train Environment",
+             "type": "debugpy",
+             "request": "launch",
+-            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-URDF0924-v0", "--headless"],
++            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-SEAG_2_URDF-v0", "--headless"],
+             "program": "${workspaceFolder}/scripts/reinforcement_learning/rsl_rl/train.py",
+             "console": "integratedTerminal"
+         },
+@@ -34,7 +34,7 @@
+             "name": "Python: Play Environment",
+             "type": "debugpy",
+             "request": "launch",
+-            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-URDF0924-v0", "--keyboard", "--checkpoint=/home/wang/workspace/robot_lab/outputs/2025-11-25_13-29-47/model_9999.pt"],
++            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-SEAG_2_URDF-v0", "--keyboard"],
+             "program": "${workspaceFolder}/scripts/reinforcement_learning/rsl_rl/play.py",
+             "console": "integratedTerminal"
+         },
+diff --git a/.vscode/settings.json b/.vscode/settings.json
+index 09b7f27..ad06296 100644
+--- a/.vscode/settings.json
++++ b/.vscode/settings.json
+@@ -723,11 +723,11 @@
+         "${workspaceFolder}/source/robot_lab",
+ 
+ 
+-        "${workspaceFolder}/../IsaacLab2.2.0/source/isaaclab_tasks",
+-        "${workspaceFolder}/../IsaacLab2.2.0/source/isaaclab",
+-        "${workspaceFolder}/../IsaacLab2.2.0/source/isaaclab_assets",
+-        "${workspaceFolder}/../IsaacLab2.2.0/source/isaaclab_mimic",
+-        "${workspaceFolder}/../IsaacLab2.2.0/source/isaaclab_rl"        
++        "${workspaceFolder}/../IsaacLab/source/isaaclab_tasks",
++        "${workspaceFolder}/../IsaacLab/source/isaaclab",
++        "${workspaceFolder}/../IsaacLab/source/isaaclab_assets",
++        "${workspaceFolder}/../IsaacLab/source/isaaclab_mimic",
++        "${workspaceFolder}/../IsaacLab/source/isaaclab_rl"        
+     ],
+     "python-envs.defaultEnvManager": "ms-python.python:conda",
+     "python-envs.defaultPackageManager": "ms-python.python:conda",
+diff --git a/logs/rsl_rl/SEAG_2_URDF_rough/2025-12-10_01-42-37/exported/policy.pt b/logs/rsl_rl/SEAG_2_URDF_rough/2025-12-10_01-42-37/exported/policy.pt
+index b0f2bec..cba3970 100644
+Binary files a/logs/rsl_rl/SEAG_2_URDF_rough/2025-12-10_01-42-37/exported/policy.pt and b/logs/rsl_rl/SEAG_2_URDF_rough/2025-12-10_01-42-37/exported/policy.pt differ
