@@ -18,7 +18,7 @@ from robot_lab.assets.utils.usd_converter import (  # noqa: F401
 )
 
 
-SEAG_2_URDF_CFG = ArticulationCfg(
+SEAG_2_URDF_CFG = ArticulationCfg( #parameter_wwj
     prim_path="{ENV_REGEX_NS}/Robot",
     spawn=sim_utils.UsdFileCfg(
         # for urdf
