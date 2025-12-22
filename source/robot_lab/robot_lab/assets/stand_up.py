@@ -37,13 +37,10 @@ import torch
 import isaaclab.sim as sim_utils
 from isaaclab.assets import Articulation
 from isaaclab.sim import SimulationContext
-
 ##
 # Pre-defined configs
 ##
-from isaaclab_assets.robots.cassie import CASSIE_CFG  # isort:skip
-from isaaclab_assets import H1_CFG  # isort:skip
-from isaaclab_assets import G1_CFG  # isort:skip
+from robot_lab.assets.SEAG_2_URDF import SEAG_2_URDF_CFG  # isort: skip
 
 
 def design_scene(sim: sim_utils.SimulationContext) -> tuple[list, torch.Tensor]:
@@ -63,10 +60,8 @@ def design_scene(sim: sim_utils.SimulationContext) -> tuple[list, torch.Tensor]:
     ]).to(device=sim.device)
 
     # Robots
-    cassie = Articulation(CASSIE_CFG.replace(prim_path="/World/Cassie"))
-    h1 = Articulation(H1_CFG.replace(prim_path="/World/H1"))
-    g1 = Articulation(G1_CFG.replace(prim_path="/World/G1"))
-    robots = [cassie, h1, g1]
+    SEA = Articulation(SEAG_2_URDF_CFG.replace(prim_path="/World/Cassie"))
+    robots = [cassie]
 
     return robots, origins
 

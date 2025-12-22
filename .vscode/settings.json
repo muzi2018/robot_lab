@@ -727,7 +727,8 @@
         "${workspaceFolder}/../IsaacLab/source/isaaclab",
         "${workspaceFolder}/../IsaacLab/source/isaaclab_assets",
         "${workspaceFolder}/../IsaacLab/source/isaaclab_mimic",
-        "${workspaceFolder}/../IsaacLab/source/isaaclab_rl"        
+        "${workspaceFolder}/../IsaacLab/source/isaaclab_rl",
+        "${workspaceFolder}/../anaconda3/envs/isaaclab2.2.0/lib/python3.11/site-packages",   
     ],
     "python-envs.defaultEnvManager": "ms-python.python:conda",
     "python-envs.defaultPackageManager": "ms-python.python:conda",
