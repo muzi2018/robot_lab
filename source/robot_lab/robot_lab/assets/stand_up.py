@@ -72,25 +72,19 @@ def run_simulator(sim: sim_utils.SimulationContext, robots: list[Articulation], 
     sim_dt = sim.get_physics_dt()
     sim_time = 0.0
     count = 0
+    
+    for index, robot in enumerate(robots):
+        # reset dof state
+        joint_pos, joint_vel = robot.data.default_joint_pos, robot.data.default_joint_vel
+        robot.write_joint_state_to_sim(joint_pos, joint_vel)
+        root_state = robot.data.default_root_state.clone()
+        root_state[:, :3] += origins[index]
+        robot.write_root_pose_to_sim(root_state[:, :7])
+        robot.write_root_velocity_to_sim(root_state[:, 7:])
+        robot.reset()
+    
     # Simulate physics
     while simulation_app.is_running():
-        # reset
-        if count % 200 == 0:
-            # reset counters
-            sim_time = 0.0
-            count = 0
-            for index, robot in enumerate(robots):
-                # reset dof state
-                joint_pos, joint_vel = robot.data.default_joint_pos, robot.data.default_joint_vel
-                robot.write_joint_state_to_sim(joint_pos, joint_vel)
-                root_state = robot.data.default_root_state.clone()
-                root_state[:, :3] += origins[index]
-                robot.write_root_pose_to_sim(root_state[:, :7])
-                robot.write_root_velocity_to_sim(root_state[:, 7:])
-                # robot.reset()
-            # reset command
-            print(">>>>>>>> Reset!")
-            print("Robot initial Z:", root_state[0, 2])
         # apply action to the robot
         for robot in robots:
             robot.set_joint_position_target(robot.data.default_joint_pos.clone())
