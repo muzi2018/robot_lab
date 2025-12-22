@@ -54,14 +54,14 @@ def design_scene(sim: sim_utils.SimulationContext) -> tuple[list, torch.Tensor]:
 
     # Define origins
     origins = torch.tensor([
-        [0.0, -1.0, 0.0],
         [0.0, 0.0, 0.0],
-        [0.0, 1.0, 0.0],
+        [0.0, 0.0, 0.0],
+        [0.0, 0.0, 0.0],
     ]).to(device=sim.device)
 
     # Robots
-    SEA = Articulation(SEAG_2_URDF_CFG.replace(prim_path="/World/Cassie"))
-    robots = [cassie]
+    SEAG_2 = Articulation(SEAG_2_URDF_CFG.replace(prim_path="/World/SEAG_2"))
+    robots = [SEAG_2]
 
     return robots, origins
 
@@ -87,9 +87,10 @@ def run_simulator(sim: sim_utils.SimulationContext, robots: list[Articulation], 
                 root_state[:, :3] += origins[index]
                 robot.write_root_pose_to_sim(root_state[:, :7])
                 robot.write_root_velocity_to_sim(root_state[:, 7:])
-                robot.reset()
+                # robot.reset()
             # reset command
             print(">>>>>>>> Reset!")
+            print("Robot initial Z:", root_state[0, 2])
         # apply action to the robot
         for robot in robots:
             robot.set_joint_position_target(robot.data.default_joint_pos.clone())

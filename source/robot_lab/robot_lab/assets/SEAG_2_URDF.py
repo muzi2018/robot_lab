@@ -40,7 +40,7 @@ SEAG_2_URDF_CFG = ArticulationCfg(
     ),
     # ... other configuration parameters ...
     init_state=ArticulationCfg.InitialStateCfg(
-        pos=(0.0, 0.0, 0.81),
+        pos=(0.0, 0.0, 1.0),
         joint_pos={
             ".*_hip_pitch_Joint": -0.0,
             ".*_hip_roll_Joint": -0.0,
