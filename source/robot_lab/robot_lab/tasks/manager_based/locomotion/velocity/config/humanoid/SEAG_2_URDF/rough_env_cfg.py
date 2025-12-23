@@ -127,8 +127,8 @@ class SEAG_2_URDFRoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.rewards.feet_height.weight = 0
         self.rewards.feet_height.params["target_height"] = 0.05
         self.rewards.feet_height.params["asset_cfg"].body_names = [self.foot_link_name]
-        self.rewards.feet_height_body.weight = 0
-        self.rewards.feet_height_body.params["target_height"] = -0.2
+        self.rewards.feet_height_body.weight = 5
+        self.rewards.feet_height_body.params["target_height"] = -0.32
         self.rewards.feet_height_body.params["asset_cfg"].body_names = [self.foot_link_name]
         self.rewards.upward.weight = 1.0
         self.rewards.feet_horizontal_simple.weight = 0.5

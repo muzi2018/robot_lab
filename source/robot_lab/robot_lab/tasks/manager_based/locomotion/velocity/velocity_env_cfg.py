@@ -363,16 +363,16 @@ class RewardsCfg:
     # General
     is_terminated = RewTerm(func=mdp.is_terminated, weight=0.0)
 
-    feet_clearance = RewTerm(
-        func=mdp.foot_clearance_reward,
-        weight=20.0,
-        params={
-            "std": 0.05,
-            "tanh_mult": 2.0,
-            "target_height": 0.2,
-            "asset_cfg": SceneEntityCfg("robot", body_names=".*ankle.*"),
-        },
-    )
+    # feet_clearance = RewTerm(
+    #     func=mdp.foot_clearance_reward,
+    #     weight=20.0,
+    #     params={
+    #         "std": 0.05,
+    #         "tanh_mult": 2.0,
+    #         "target_height": 0.2,
+    #         "asset_cfg": SceneEntityCfg("robot", body_names=".*ankle.*"),
+    #     },
+    # )
 
     # Root penalties
     lin_vel_z_l2 = RewTerm(func=mdp.lin_vel_z_l2, weight=0.0)
