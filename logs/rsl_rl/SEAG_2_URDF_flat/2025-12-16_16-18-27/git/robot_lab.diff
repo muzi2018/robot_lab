@@ -1,0 +1,54 @@
+--- git status ---
+On branch dev/SEAG_2_URDF
+Your branch is up to date with 'origin/dev/SEAG_2_URDF'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   source/robot_lab/robot_lab/assets/SEAG_2_URDF.py
+	modified:   source/robot_lab/robot_lab/assets/__pycache__/SEAG_2_URDF.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/assets/descriptions/SEAG_2_URDF/urdf/SEAG_2_URDF.urdf
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/rsl_rl/SEAG_2_URDF_flat/2025-12-16_16-18-27/
+	outputs/2025-12-16/
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/source/robot_lab/robot_lab/assets/SEAG_2_URDF.py b/source/robot_lab/robot_lab/assets/SEAG_2_URDF.py
+index fb7853f..0596733 100644
+--- a/source/robot_lab/robot_lab/assets/SEAG_2_URDF.py
++++ b/source/robot_lab/robot_lab/assets/SEAG_2_URDF.py
+@@ -24,7 +24,7 @@ SEAG_2_URDF_CFG = ArticulationCfg( #parameter_wwj
+         # for urdf
+         func=spawn_from_lazy_usd,
+         usd_path=urdf_to_usd(  # type: ignore
+-            file_path=f"/home/wang/workspace/robot_lab/source/robot_lab/robot_lab/assets/descriptions/SEAG_2_URDF/urdf/SEAG_2_URDF_bend.urdf",
++            file_path=f"/home/wang/workspace/robot_lab/source/robot_lab/robot_lab/assets/descriptions/SEAG_2_URDF/urdf/SEAG_2_URDF.urdf",
+             merge_joints=True,
+             fix_base=False,
+         ),
+diff --git a/source/robot_lab/robot_lab/assets/__pycache__/SEAG_2_URDF.cpython-311.pyc b/source/robot_lab/robot_lab/assets/__pycache__/SEAG_2_URDF.cpython-311.pyc
+index 0c37273..35112f9 100644
+Binary files a/source/robot_lab/robot_lab/assets/__pycache__/SEAG_2_URDF.cpython-311.pyc and b/source/robot_lab/robot_lab/assets/__pycache__/SEAG_2_URDF.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/assets/descriptions/SEAG_2_URDF/urdf/SEAG_2_URDF.urdf b/source/robot_lab/robot_lab/assets/descriptions/SEAG_2_URDF/urdf/SEAG_2_URDF.urdf
+index 346f58d..d130c3d 100644
+--- a/source/robot_lab/robot_lab/assets/descriptions/SEAG_2_URDF/urdf/SEAG_2_URDF.urdf
++++ b/source/robot_lab/robot_lab/assets/descriptions/SEAG_2_URDF/urdf/SEAG_2_URDF.urdf
+@@ -13,11 +13,11 @@
+     discardvisual="false" />
+   </mujoco>
+   
+-  <link name="world"></link>
++  <!-- <link name="world"></link>
+     <joint name="floating_base_joint" type="floating">
+       <parent link="world" />
+         <child link="base_link" />
+-    </joint> 
++    </joint>  -->
+ 
+ 
+   <link

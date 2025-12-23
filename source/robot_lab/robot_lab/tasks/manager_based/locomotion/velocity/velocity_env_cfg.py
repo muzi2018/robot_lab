@@ -5,12 +5,10 @@
 # All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
-
 import inspect
 import math
 import sys
 from dataclasses import MISSING
-
 import isaaclab.sim as sim_utils
 from isaaclab.assets import ArticulationCfg, AssetBaseCfg
 from isaaclab.envs import ManagerBasedRLEnvCfg
@@ -27,7 +25,6 @@ from isaaclab.terrains import TerrainImporterCfg
 from isaaclab.utils import configclass
 from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR, ISAACLAB_NUCLEUS_DIR
 from isaaclab.utils.noise import AdditiveUniformNoiseCfg as Unoise
-
 import robot_lab.tasks.manager_based.locomotion.velocity.mdp as mdp
 
 ##
@@ -639,6 +636,15 @@ class RewardsCfg:
             "max_angle": 0.1,
             "command_name": "base_velocity", 
             "velocity_threshold": 0.1,
+        },
+    )
+
+    feet_near = RewTerm(
+        func=mdp.feet_too_near,
+        weight=-1,
+        params={
+            "asset_cfg": SceneEntityCfg("robot", body_names=".*ankle_roll.*"),
+            "threshold": 0.4,
         },
     )
 

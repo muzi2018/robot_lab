@@ -105,8 +105,6 @@ To enable your extension, follow these steps:
    - Find your extension under the `Third Party` category.
    - Toggle it to enable your extension.
 
-</details>
-
 ## Docker setup
 
 <details>

@@ -11,7 +11,6 @@ from robot_lab.tasks.manager_based.locomotion.velocity.velocity_env_cfg import L
 ##
 # from isaaclab_assets.robots.unitree import G1_MINIMAL_CFG  # isort: skip
 from robot_lab.assets.urdf0924 import URDF_0924_CFG  # isort: skip
-
 @configclass
 class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
     base_link_name = "pelvis"
@@ -131,9 +130,9 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.rewards.track_ang_vel_z_exp.func = mdp.track_ang_vel_z_world_exp
 
         # Others
-        self.rewards.feet_air_time.weight = 1.75
+        self.rewards.feet_air_time.weight = 2.75
         self.rewards.feet_air_time.func = mdp.feet_air_time_positive_biped
-        self.rewards.feet_air_time.params["threshold"] = 0.8
+        self.rewards.feet_air_time.params["threshold"] = 1.0
         self.rewards.feet_air_time.params["sensor_cfg"].body_names = [self.foot_link_name]
         self.rewards.feet_contact.weight = 0.0
         self.rewards.feet_contact.params["sensor_cfg"].body_names = [self.foot_link_name]
@@ -166,6 +165,6 @@ class URDF_0924RoughEnvCfg(LocomotionVelocityRoughEnvCfg):
         self.curriculum.command_levels = None
 
         # ------------------------------Commands------------------------------
-        self.commands.base_velocity.ranges.lin_vel_x = (-0.5, 0.5)
+        self.commands.base_velocity.ranges.lin_vel_x = (-1, 1)
         self.commands.base_velocity.ranges.lin_vel_y = (-0.5, 0.5)
         self.commands.base_velocity.ranges.ang_vel_z = (-0.5, 0.5)

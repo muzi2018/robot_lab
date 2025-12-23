@@ -1,0 +1,35 @@
+--- git status ---
+On branch dev/humanoid_run
+Your branch is up to date with 'origin/dev/humanoid_run'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   scripts/reinforcement_learning/rsl_rl/train.py
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	_isaac_sim
+	logs/rsl_rl/urdf_0924_flat/2025-11-23_02-03-35/
+	outputs/2025-11-23/
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/scripts/reinforcement_learning/rsl_rl/train.py b/scripts/reinforcement_learning/rsl_rl/train.py
+index fba8b44..137930d 100644
+--- a/scripts/reinforcement_learning/rsl_rl/train.py
++++ b/scripts/reinforcement_learning/rsl_rl/train.py
+@@ -15,7 +15,6 @@ import os
+ import sys
+ 
+ from isaaclab.app import AppLauncher
+-
+ # local imports
+ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+ import cli_args
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc
+index d971532..69f7b9a 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/urdf0924/agents/__pycache__/rsl_rl_ppo_cfg.cpython-310.pyc differ

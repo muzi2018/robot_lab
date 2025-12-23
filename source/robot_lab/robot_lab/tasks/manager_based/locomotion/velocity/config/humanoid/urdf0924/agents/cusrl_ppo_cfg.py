@@ -7,10 +7,10 @@ from isaaclab.utils import configclass
 
 
 @configclass
-class URDF0924RoughTrainerCfg:
+class SEAG_2_URDFRoughTrainerCfg:
     max_iterations = 3000
     save_interval = 100
-    experiment_name = "urdf_0924_rough"
+    experiment_name = "SEAG_2_URDF_rough"
     agent_factory = cusrl.ActorCritic.Factory(
         num_steps_per_update=24,
         actor_factory=cusrl.Actor.Factory(
@@ -42,8 +42,8 @@ class URDF0924RoughTrainerCfg:
 
 
 @configclass
-class URDF0924FlatTrainerCfg(URDF0924RoughTrainerCfg):
+class SEAG_2_URDFFlatTrainerCfg(SEAG_2_URDFRoughTrainerCfg):
     def __post_init__(self):
         super().__post_init__()
         self.max_iterations = 1500
-        self.experiment_name = "urdf_0924_rough"
+        self.experiment_name = "SEAG_2_URDF_rough"
