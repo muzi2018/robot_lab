@@ -34,7 +34,7 @@ class SEAG_2_URDFFlatEnvCfg(SEAG_2_URDFRoughEnvCfg):
         self.rewards.feet_air_time.weight = 0.75
         self.rewards.feet_air_time.params["threshold"] = 1.5
         self.rewards.joint_torques_l2.weight = -4.0e-4 # -2.0e-4
-        self.rewards.joint_torques_l2.params["asset_cfg"].joint_names = [".*_hip_.*", ".*_knee_pitch_Joint"]
+        self.rewards.joint_torques_l2.params["asset_cfg"].joint_names = [".*_hip_roll.*", ".*_hip_yaw.*",".*_ankle_roll_Joint"]
 
         # If the weight of rewards is 0, set rewards to None
         if self.__class__.__name__ == "SEAG_2_URDFFlatEnvCfg":
