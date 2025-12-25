@@ -6,7 +6,7 @@ Reference: https://github.com/unitreerobotics/unitree_ros
 """
 
 import isaaclab.sim as sim_utils
-from isaaclab.actuators import IdealPDActuatorCfg
+from isaaclab.actuators import IdealPDActuatorCfg, DelayedPDActuatorCfg
 from isaaclab.assets.articulation import ArticulationCfg
 from robot_lab.assets.utils.usd_converter import (  # noqa: F401
     spawn_from_lazy_usd,
@@ -40,7 +40,7 @@ SEAG_2_URDF_CFG = ArticulationCfg(
     ),
     # ... other configuration parameters ...
     init_state=ArticulationCfg.InitialStateCfg(
-        pos=(0.0, 0.0, 1.0),
+        pos=(0.0, 0.0, 0.8),
         joint_pos={
             ".*_hip_pitch_Joint": -0.0,
             ".*_hip_roll_Joint": -0.0,
@@ -53,7 +53,7 @@ SEAG_2_URDF_CFG = ArticulationCfg(
     ),
     soft_joint_pos_limit_factor=0.9,
     actuators={
-        "legs": IdealPDActuatorCfg(
+        "legs": DelayedPDActuatorCfg(
             joint_names_expr=[
                 ".*_hip_pitch_Joint",
                 ".*_hip_roll_Joint",
@@ -91,7 +91,7 @@ SEAG_2_URDF_CFG = ArticulationCfg(
                 ".*_knee_pitch_Joint": 0.0646,
             },
         ),
-        "feet": IdealPDActuatorCfg(
+        "feet": DelayedPDActuatorCfg(
             joint_names_expr=[".*_ankle_pitch_Joint", ".*_ankle_roll_Joint"],
             effort_limit_sim={
                 ".*_ankle_pitch_Joint": 99,
