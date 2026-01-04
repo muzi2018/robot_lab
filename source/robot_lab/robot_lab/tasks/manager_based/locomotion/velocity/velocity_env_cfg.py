@@ -147,7 +147,7 @@ class ObservationsCfg:
         )
         projected_gravity = ObsTerm(
             func=mdp.projected_gravity,
-            noise=Unoise(n_min=-0.05, n_max=0.05),
+            noise=Unoise(n_min=-0.3, n_max=0.3),
             clip=(-100.0, 100.0),
             scale=1.0,
         )
@@ -167,7 +167,7 @@ class ObservationsCfg:
         joint_vel = ObsTerm(
             func=mdp.joint_vel_rel,
             params={"asset_cfg": SceneEntityCfg("robot", joint_names=".*", preserve_order=True)},
-            noise=Unoise(n_min=-1.5, n_max=1.5),
+            noise=Unoise(n_min=-3.0, n_max=3.0),
             clip=(-100.0, 100.0),
             scale=1.0,
         )
