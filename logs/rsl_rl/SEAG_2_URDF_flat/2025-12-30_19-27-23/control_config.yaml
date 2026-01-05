@@ -1,0 +1,314 @@
+__collection-name__: ningning_user_parameters
+
+RunSim: 0
+# elmo No: left leg: 0-5  right leg 0-5
+Test_single_elmo_elmono_Enable: 0 # 0: disable 1: left leg 2: right leg
+#-------测试单关节 start----------
+Test_single_elmo_elmono: 0
+# tartorq: unit Nm
+Test_single_elmo_tartorq: -1
+# tor_effect_time: unit ms
+Test_single_elmo_tor_effect_time: 200
+#-------测试多关节 end--------
+#-------测试多关节 end--------
+# 双腿支撑的力增益
+Test_torque_cmd_fine_tune: 1.0
+Test_torque_cmd_fine_tune_leftstance: 1.0
+Test_torque_cmd_fine_tune_rightstance: 1.0
+Test_swingleg_y_bias: 0.0
+Test_mass: 60
+
+Enable_HipPitch_Control_to_Zero: 1 # 0: disable 1: enable
+
+# RL零位
+# RL_Zero_Bias_POS: [ 0, 0, 0, 0, 0, 0 ]
+RL_Zero_Bias_POS: [ 0, 0, -0.3, 0.7, -0.4, 0 ]
+# InitPose
+InitLeftEndPosX: 0.04
+InitLeftEndPosY: 0.14
+InitRightEndPosX: 0.04
+InitRightEndPosY: -0.14
+
+DesiredHeight: 0.80
+
+step_period_rl: 0.8
+
+# Hangging
+Kp_LeftLegHanging: [200, 300, 300, 300, 200, 200]
+Kd_LeftLegHanging: [1.5, 4, 4, 4, 1, 1]
+
+Kp_RightLegHanging: [200, 300,300, 300, 200, 200]
+Kd_RightLegHanging: [1.5, 4, 4, 4, 1,1]
+
+# 這個是雙腿支撐的位控
+Kp_LeftLegStance: [300, 400, 450, 550, 350, 200]
+Kd_LeftLegStance: [1, 1, 2, 2, 3, 2]
+
+Kp_RightLegStance: [300, 400, 450, 550, 350, 200]
+Kd_RightLegStance: [1, 1, 2, 2, 3, 2]
+
+
+# 双腿支撑参数
+Test_Mpc_DS_kp: [1.0,   1.0,  1.0,  1.0,  1.0,  1.0]
+# 双腿支撑参数
+Kp_DoubleStanceLegPosCompensate: [  200,   50,  70,  70,  70,   20] #kp  ankle关节的MPC纯出力不太好弄，大了会斗，小了控不住，得加一点pd
+Kd_DoubleStanceLegPosCompensate: [  0.1,  0.1,  0.1,  0.1,   0.1, 0.1] #kd
+
+USE_PINNOCHIO_GRAVITY_COMPENSATION_MODE: 0 # 0: 纯PD 1: 使用pinocchio重力补偿 + PD 2: 使用pinocchiofz重力补偿 + PD
+Gravity_compensation_ratio: 0.9
+# 这个是RL的PD参数
+
+# Kp_LeftLegRLWalk: [100 ,50, 50, 50, 20, 20]
+# Kd_LeftLegRLWalk: [1, 1, 1, 1, 1, 1]
+# Kp_RightLegRLWalk: [100 ,50, 50, 50, 20, 20]
+# Kd_RightLegRLWalk: [1, 1, 1, 1, 1, 1]
+
+
+# Kp_LeftLegWalkSwing: [100 ,50, 50, 50, 20, 20]
+# Kd_LeftLegWalkSwing: [1, 1, 1, 1, 1, 1]
+# Kp_RightLegWalkSwing: [100 ,50, 50, 50, 20, 20]
+# Kd_RightLegWalkSwing: [1, 1, 1, 1, 1, 1]
+RL_SwingLeg_Roll_Bias_POS: 0
+
+Kp_LeftLegRLWalk: [250 ,330, 400, 400, 70, 70]
+Kd_LeftLegRLWalk: [4, 1, 4, 4, 2, 1]
+Kp_RightLegRLWalk: [200 ,330, 400, 400, 70, 70]
+Kd_RightLegRLWalk: [4, 1, 4, 4, 2, 1]
+
+
+# Kp_LeftLegWalkSwing: [250 ,330, 400, 400, 50, 50]
+# Kd_LeftLegWalkSwing: [4, 1, 2, 3, 2, 1]
+# Kp_RightLegWalkSwing: [200 ,330, 400, 400, 50, 50]
+# Kd_RightLegWalkSwing: [4, 1, 2, 3, 2, 1]
+
+Kp_LeftLegWalkSwing: [200 ,180, 400, 400, 160, 50]
+Kd_LeftLegWalkSwing: [4, 4, 10, 10, 3, 1]
+Kp_RightLegWalkSwing: [200 ,180, 400, 400, 160, 50]
+Kd_RightLegWalkSwing: [4, 4, 10, 10, 3, 1]
+
+
+
+# ===stance MPC===
+SrbdMpcRpyWeightStance: [2500, 2500, 0]
+SrbdMpcXyzWeightStance: [500, 500, 2000]
+SrbdMpcLcomWeightStance: [0.5, 1.5, 0]
+SrbdMpcPcomWeightStance: [2, 0.8, 0.5] #如果px py太大，会抖 控制Vx Vy 线速度
+SrbdMpcForceWeightStance: [0.5, 0.05, 0.0008]
+SrbdMpcTorqueWeightStance: [0.1, 0.11, 10000000000] #ankle roll没劲 调1  pitch 没劲调2 
+# SrbdMpcRpyWeightStance: [2500, 2500, 0]
+# SrbdMpcXyzWeightStance: [500, 500, 1000]
+# SrbdMpcLcomWeightStance: [0.5, 1.5, 0]
+# SrbdMpcPcomWeightStance: [2, 0.8, 0.5] #如果px py太大，会抖 控制Vx Vy 线速度
+# SrbdMpcForceWeightStance: [0.8, 0.007, 0.0003]
+# SrbdMpcTorqueWeightStance: [0.03, 0.05, 10000000000] #ankle roll没劲 调1  pitch 没劲调2 
+
+# copy from sim
+TouchingPointLonFeedback: [0.00, 0.5, 0.2]  # 第一项是偏置  第二项是Vx,应该和踏步周期正相关  第三项是Vx-Vset，相当于设定速度与当前速度部匹配时的调整量
+TouchingPointLatFeedback: [0.05, 0.5, 0.15] #第一项给负数不太行，会导致右腿往左落，左腿往右落
+TouchingPointLonFeedbackMpcRef: [0.0, 0.05, 0.05]
+TouchingPointLatFeedbackMpcRef: [0.0, 0.55, 0.15]
+# 
+
+
+IsActive: 1
+# 0: calculate wrench, not consider contact event
+# 1: calculate wrench, consider once contact event
+# 2: calculate wrench && footstep, consider once contact event, assuming foot is a point
+# 3: calculate wrench && footstep, consider once contact event, consider foot polygon collision-free constraints
+MpcType: 1
+# 0: raibert law 
+# 1: wrench_footstep_mpc's output footstep
+FootstepType: 0
+ForceChangeFootstep: [0.12, 0.2, 0]
+IsAddSecondFricConstr: 0
+####################################################################
+
+
+HangingInterpolateTime: 1
+# HANGING态PD
+# Kp_LeftLegHanging: [20, 20, 30, 30, 15, 3]
+# Kd_LeftLegHanging: [0.2, 0.2, 0.35, 0.35, 0.05, 0.1]
+
+# Kp_RightLegHanging: [20, 20, 30, 30, 15, 3]
+# Kd_RightLegHanging: [0.2, 0.2, 0.35, 0.35, 0.05, 0.1]
+
+
+
+
+
+# # 双腿支撑参数
+# Test_Mpc_DS_kp: [1.0,   1.0,  1.0,  1.0,  1.0,  1.0]
+# Kp_DoubleStanceLegPosCompensate: [  20,     20,  20,  20,     100,   100] #kp  ankle关节的MPC纯出力不太好弄，大了会斗，小了控不住，得加一点pd
+# Kd_DoubleStanceLegPosCompensate: [  0.1,  0.1,  0.1,  0.1,   0.3, 0.3] #kd
+
+
+
+Point_yBias: 0.15 #No Use
+Point_xBias: 0.15 #No Use
+
+# STEP 参数
+Test_MPC_Tx: 24
+Test_MPC_Ty: 40
+Test_Enable_imu_ctrl_roll: 0
+Test_Mpc_LS_kp: [1.0,  1.0,  1.0,  1.0,  1.0,  1.0] #mpc ankle roll 再大就会脚底板便
+Test_Mpc_RS_kp: [1.0,  1.0,  1.0,  1.0,  1.0,  1.0]
+
+Kp_StanceLeftLegPosCompensate: [  300,  300,   160,     80,     40,     50]
+Kd_StanceLeftLegPosCompensate: [1, 0.5, 2,   0.5,   0.5,    0.5]
+
+Kp_StanceRightLegPosCompensate: [  300,  300,   160,    80,     40,     50]
+Kd_StanceRightLegPosCompensate: [1, 0.5, 2,  0.5,   0.5,    0.5]
+# Kp_StanceLeftLegPosCompensate: [300,  2,   100,     2,     20,     20]
+# Kd_StanceLeftLegPosCompensate: [1, 0.1, 3,   0.1,   0.1,    0.1]
+
+# Kp_StanceRightLegPosCompensate: [300,  2,   100,    2,     20,     20]
+# Kd_StanceRightLegPosCompensate: [1, 0.1, 3,  0.1,   0.1,    0.1]
+
+SrbdMpcDeltaStepWeightWalk: [100000, 100000, 0] #linear MPC没用上
+SrbdMpcControlRateWeightWalk: [0, 0, 0]
+SrbdMpcRpyWeightWalk: [600, 400, 0]
+SrbdMpcXyzWeightWalk: [1, 1, 600]
+SrbdMpcLcomWeightWalk: [0.5, 1.5, 0]
+SrbdMpcPcomWeightWalk: [2, 0.8, 0.5]
+SrbdMpcForceWeightWalk: [0.8, 0.007, 0.0003]
+SrbdMpcTorqueWeightWalk: [0.008, 0.08, 10000000000]
+
+
+# SrbdMpcControlRateWeightWalk: [0, 0, 0]
+# SrbdMpcRpyWeightWalk: [1000, 4000, 0]
+# SrbdMpcXyzWeightWalk: [1, 1, 2500] #Qz 600->2000
+# SrbdMpcLcomWeightWalk: [0.5, 6, 0]
+# SrbdMpcPcomWeightWalk: [2, 0.8, 0.5]
+# SrbdMpcForceWeightWalk: [8, 0.007, 0.00002]
+# SrbdMpcTorqueWeightWalk: [0.002, 3, 10000000000] #0.5脚踝基本不翻
+
+# SrbdMpcControlRateWeightWalk: [0, 0, 0]
+# SrbdMpcRpyWeightWalk: [600, 400, 0]
+# SrbdMpcXyzWeightWalk: [1, 1, 600]
+# SrbdMpcLcomWeightWalk: [0.5, 3, 0]
+# SrbdMpcPcomWeightWalk: [2, 0.8, 0.5]
+# SrbdMpcForceWeightWalk: [0.03, 0.015, 0.0003]
+# SrbdMpcTorqueWeightWalk: [1, 0.1, 10000000000] #0.5脚踝基本不翻
+
+
+
+Test_imu_error_control_roll_kp: 50
+Test_imu_error_control_roll_kd: 0.5
+Test_imu_error_control_roll_threshold: 30.0
+
+# Kp_DoubleStanceLegPosCompensate: [50, 50, 50, 50, 50, 50]
+# Kd_DoubleStanceLegPosCompensate: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+#######################################################################
+# 摆动腿PD
+# Kp_LeftLegWalkSwing: [80, 100, 200, 160, 10, 10]
+# Kd_LeftLegWalkSwing: [0.4, 0.5, 1, 0.8, 0.1, 0.1]
+
+# Kp_RightLegWalkSwing: [80, 100, 200, 160, 10, 10]
+# Kd_RightLegWalkSwing: [0.4, 0.5, 1, 0.8, 0.1, 0.1]
+
+# # use for swing leg
+# Kp_LeftLegWalkSwing: [150, 350, 500, 500, 30, 30]
+# Kd_LeftLegWalkSwing: [1, 2, 3, 3, 0.3, 0.3]
+
+# Kp_RightLegWalkSwing: [150, 350, 500, 500, 30, 30]
+# Kd_RightLegWalkSwing: [1, 2, 3, 3, 0.3, 0.3]
+# use for swing leg
+Kp_LeftLegWalkSwing: [300, 150, 300, 300, 30, 30]
+Kd_LeftLegWalkSwing: [2, 2, 3, 3, 0.3, 0.3]
+
+Kp_RightLegWalkSwing: [300, 150, 300, 300, 30, 30]
+Kd_RightLegWalkSwing: [2, 2, 3, 3, 0.3, 0.3]
+
+# 自适应PD参数
+AdaptivePD_Enable: 1  # 1: 启用自适应PD, 0: 禁用
+AdaptivePD_PosErrThreshold: [0.05, 0.05, 0.08, 0.08, 0.05, 0.05]  # 位置误差阈值(rad)
+AdaptivePD_VelErrThreshold: [1, 1, 1, 1, 0.3, 0.3]     # 速度误差阈值(rad/s)
+AdaptivePD_MinGainRatio: 0.1  # 最小增益比例
+AdaptivePD_MaxGainRatio: 1.0  # 最大增益比例
+AdaptivePD_SmoothFactor: 0.8  # 平滑因子(0-1)，用于平滑增益变化
+
+
+Turn_Angle: 0.0
+Turn_Angle_Max: 0.18
+Roll_Turn_Angle: 0
+Roll_Turn_Angle_Max: 0.1
+Pitch_Turn_Angle: 0
+Pitch_Turn_Angle_Max: 0.1
+Delta_Height: 0
+Delta_Height_Max: 0.2
+############################################################################
+Kp_ShoulderSwing: [30, 30, 10, 1]
+Kd_SholderSwing: [0.5, 0.5, 0.1, 0.1]
+############################################################################
+# some walk params
+WalkPeriod: 0.5
+ContactThresHanging: 50
+ContactThresWalking: 50
+ParametricTimeThres: 0.9
+
+SwingLegHeight: -0.80
+SwingLegTouchingHeight: -0.85
+
+SwingLegProbeTimeThres: 0.92
+SwingLegProbeHeight: -0.03
+# SwingLegHeight: -0.80
+# SwingLegTouchingHeight: -0.8577  #+0.02的偏置
+
+# SwingLegProbeTimeThres: 0.92
+# SwingLegProbeHeight: -0.03
+
+PitchBias: -0.1
+
+MpcHorizon: 21
+# SrbdMpcRpyWeightWalk: [1000, 800, 0]
+# SrbdMpcXyzWeightWalk: [1, 1, 2000]
+# SrbdMpcLcomWeightWalk: [1.6, 1.0, 0]
+# SrbdMpcPcomWeightWalk: [0.05, 0.01, 0.1]
+# SrbdMpcForceWeightWalk: [0.008, 0.007, 0.0003]
+# SrbdMpcTorqueWeightWalk: [0.05, 0.01, 10000000000]
+
+
+
+########################################################################################
+############################# use for footstep mpc
+# MpcHorizon: 20
+# SrbdMpcRpyWeightWalk: [1000, 2000, 0]
+# SrbdMpcXyzWeightWalk: [1, 1, 2500]
+# SrbdMpcLcomWeightWalk: [2.5, 1.0, 0]
+# SrbdMpcPcomWeightWalk: [0.3, 0.1, 0.5]
+# SrbdMpcForceWeightWalk: [0.008, 0.005, 0.0003]
+# SrbdMpcTorqueWeightWalk: [0.1, 0.1, 10000000000]
+obs_scales_lin_vel : 1.0
+obs_scales_ang_vel : 0.25
+obs_scales_dof_pos : 1.0
+obs_scales_dof_vel : 0.05
+clip_observations  : 100.0
+
+
+
+
+VxAcc: 0.0005
+VyAcc: 0.0005
+VxSet: 0
+VySet: 0.0
+VxMax: 0.5
+VxMin: -0.5
+VyMax: 0.5
+VyMin: -0.5
+VyBias: -0.0
+VxBias: -0.0
+#############################################################################
+KalmanPredictVelConvirance: [0.000005, 0.000005, 0.000005]
+KalmanMeasureVelConvirance: [1, 1, 1]
+LowPassFilterSampleTimeVel: 0.001
+LowPassFilterCutFreqVel: 5
+LowPassFilterSampleTimeMpc: 0.001
+LowPassFilterCutFreqMpc: 5
+##############################################################################
+MainThreadPeriod: 0.001
+
+IsUseBezierSwingTraj: 0
+
+MpcOutputSafeThres: [150, 150, 500]
+WalkRpySafeThres: [0.35, 0.5, 10000000000000]
+StanceRpySafeThres: [0.18, 0.18, 10000000000000]

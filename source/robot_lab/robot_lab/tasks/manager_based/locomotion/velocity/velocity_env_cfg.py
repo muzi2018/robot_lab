@@ -110,7 +110,7 @@ class CommandsCfg:
         heading_control_stiffness=0.5,
         debug_vis=True,
         ranges=mdp.UniformThresholdVelocityCommandCfg.Ranges(
-            lin_vel_x=(-1.0, 1.0), lin_vel_y=(-1.0, 1.0), ang_vel_z=(-1.0, 1.0), heading=(-math.pi, math.pi)
+            lin_vel_x=(-1.0, 1.0), lin_vel_y=(-1.0, 1.0), ang_vel_z=(-0.5, 0.5), heading=(-math.pi, math.pi)
         ),
     )
 
@@ -384,7 +384,7 @@ class RewardsCfg:
         params={
             "asset_cfg": SceneEntityCfg("robot", body_names=""),
             "sensor_cfg": SceneEntityCfg("height_scanner_base"),
-            "target_height": 0.0,
+            "target_height": 0.8,
         },
     )
     body_lin_acc_l2 = RewTerm(
