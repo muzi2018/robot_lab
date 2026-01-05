@@ -26,7 +26,9 @@ class SEAG_2_URDFFlatEnvCfg(SEAG_2_URDFRoughEnvCfg):
 
         # Rewards
         self.rewards.track_lin_vel_xy_exp.weight = 1.0
+        self.rewards.track_lin_vel_xy_exp.func = mdp.track_lin_vel_xy_yaw_frame_exp
         self.rewards.track_ang_vel_z_exp.weight = 0.5
+        self.rewards.track_ang_vel_z_exp.func = mdp.track_ang_vel_z_world_exp
 
         self.rewards.base_height_l2.weight = -20
         self.rewards.base_height_l2.params["target_height"] = 0.80
