@@ -51,7 +51,7 @@ from robot_lab.assets.unitree import UNITREE_G1_29DOF_CFG
 
 # Load motion data and get dt
 motion = MotionLoader(args_cli.motion, device=args_cli.device)
-motion.resample(0.005, kind="linear")
+motion.resample(0.001, kind="linear")
 num_frames = motion.num_frames
 print(f"motion.dt: {motion.dt}")
 print(f"motion.num_frames: {motion.num_frames}")
