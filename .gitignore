@@ -1,0 +1,7 @@
+
+logs/
+logs/*
+
+outputs/
+
+*.pyc
