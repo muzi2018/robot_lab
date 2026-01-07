@@ -65,7 +65,6 @@ class SEAG_2_URDFFlatEnvCfg(SEAG_2_URDFRoughEnvCfg):
         if self.__class__.__name__ == "SEAG_2_URDFFlatEnvCfg":
             self.disable_zero_weight_rewards()
 
-
     # feet_clearance = RewTerm(
     #     func=mdp.foot_clearance_reward,
     #     weight=20.0,
