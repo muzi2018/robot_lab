@@ -58,7 +58,7 @@
         "uninstanceable"
     ],
     // This enables python language server. Seems to work slightly better than jedi:
-    "python.languageServer": "Pylance",
+    "python.languageServer": "None",
     // We use "black" as a formatter:
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": ["--line-length", "120"],

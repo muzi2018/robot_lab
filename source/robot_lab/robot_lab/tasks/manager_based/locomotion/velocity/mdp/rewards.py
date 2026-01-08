@@ -664,8 +664,9 @@ def feet_slide(
 
 
 def upward(env: ManagerBasedRLEnv, asset_cfg: SceneEntityCfg = SceneEntityCfg("robot")) -> torch.Tensor:
-    """Penalize z-axis base linear velocity using L2 squared kernel."""
-    # extract the used quantities (to enable type-hinting)
+    """Penalize upright base orientation using L2 squared kernel.
+    This rewards non-upright orientations (horizontal or inverted).
+    """    # extract the used quantities (to enable type-hinting)
     asset: RigidObject = env.scene[asset_cfg.name]
     reward = torch.square(1 - asset.data.projected_gravity_b[:, 2])
     return reward
