@@ -34,7 +34,7 @@
             "name": "Python: Play Environment",
             "type": "debugpy",
             "request": "launch",
-            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-SEAG_2_URDF-v0", "--keyboard", "--checkpoint", "/home/wang/workspace/robot_lab/logs/rsl_rl/SEAG_2_URDF_flat/2025-12-30_19-25-50/model_14999.pt"],
+            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-SEAG_2_URDF-v0", "--keyboard", "--checkpoint", "/home/wang/workspace/robot_lab/wandb/run-20260109_021344-rzauorou/files/model_14999.pt"],
             "program": "${workspaceFolder}/scripts/reinforcement_learning/rsl_rl/play.py",
             "console": "integratedTerminal"
         },

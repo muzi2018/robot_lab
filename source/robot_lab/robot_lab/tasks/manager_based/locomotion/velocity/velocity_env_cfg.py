@@ -719,7 +719,7 @@ class LocomotionVelocityRoughEnvCfg(ManagerBasedRLEnvCfg):
         """Post initialization."""
         # general settings
         self.decimation = 10
-        self.episode_length_s = 40.0
+        self.episode_length_s = 20.0
         # simulation settings
         self.sim.dt = 0.001
         self.sim.render_interval = self.decimation
