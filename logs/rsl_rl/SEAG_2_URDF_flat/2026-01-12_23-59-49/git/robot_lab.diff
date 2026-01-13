@@ -1,0 +1,53 @@
+--- git status ---
+On branch test/SEAG_2
+Your branch is up to date with 'origin/test/SEAG_2'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   source/robot_lab/robot_lab/assets/__pycache__/SEAG_2_URDF.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_viewer.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/flat_env_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/rough_env_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/agents/__pycache__/__init__.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/agents/__pycache__/rsl_rl_ppo_cfg.cpython-311.pyc
+	modified:   source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/rsl_rl/SEAG_2_URDF_flat/2026-01-12_23-59-49/
+	outputs/2026-01-12/
+
+no changes added to commit (use "git add" and/or "git commit -a") 
+
+
+--- git diff ---
+diff --git a/source/robot_lab/robot_lab/assets/__pycache__/SEAG_2_URDF.cpython-311.pyc b/source/robot_lab/robot_lab/assets/__pycache__/SEAG_2_URDF.cpython-311.pyc
+index a7bccc3..3441092 100644
+Binary files a/source/robot_lab/robot_lab/assets/__pycache__/SEAG_2_URDF.cpython-311.pyc and b/source/robot_lab/robot_lab/assets/__pycache__/SEAG_2_URDF.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_viewer.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_viewer.cpython-311.pyc
+index a2aa81a..5ec18d0 100644
+Binary files a/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_viewer.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/direct/g1_amp/motions/__pycache__/motion_viewer.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc
+index 91ca063..5874c67 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/__pycache__/velocity_env_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/__init__.cpython-311.pyc
+index d734768..b489db5 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/flat_env_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/flat_env_cfg.cpython-311.pyc
+index 34ce9e6..da6137e 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/flat_env_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/flat_env_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/rough_env_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/rough_env_cfg.cpython-311.pyc
+index bdb9f28..31e3009 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/rough_env_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/__pycache__/rough_env_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/agents/__pycache__/__init__.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/agents/__pycache__/__init__.cpython-311.pyc
+index fa1d741..c4e1e6a 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/agents/__pycache__/__init__.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/agents/__pycache__/__init__.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/agents/__pycache__/rsl_rl_ppo_cfg.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/agents/__pycache__/rsl_rl_ppo_cfg.cpython-311.pyc
+index 7b1c700..fba9e16 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/agents/__pycache__/rsl_rl_ppo_cfg.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/config/humanoid/SEAG_2_URDF/agents/__pycache__/rsl_rl_ppo_cfg.cpython-311.pyc differ
+diff --git a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc
+index 4708bc9..8b8d1d0 100644
+Binary files a/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc and b/source/robot_lab/robot_lab/tasks/manager_based/locomotion/velocity/mdp/__pycache__/rewards.cpython-311.pyc differ
