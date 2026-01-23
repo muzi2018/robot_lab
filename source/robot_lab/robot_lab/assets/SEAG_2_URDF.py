@@ -20,7 +20,7 @@ SEAG_2_URDF_CFG = ArticulationCfg(
         # for urdf
         func=spawn_from_lazy_usd,
         usd_path=urdf_to_usd(  # type: ignore
-            file_path="/home/wang/robot_lab/source/robot_lab/robot_lab/assets/descriptions/SEAG_2_URDF/urdf/SEAG_2_URDF_bend.urdf",
+            file_path="/home/wang/serina/robot_lab/source/robot_lab/robot_lab/assets/descriptions/SEAG_2_URDF/urdf/SEAG_2_URDF_bend.urdf",
             merge_joints=True,
             fix_base=False,
         ),

@@ -9,7 +9,7 @@
 
   <mujoco>
     <compiler 
-    meshdir="/home/han/workplace/Shanghai/resources/robots/SEAG_2_0923/SEAG_2_URDF/meshes" 
+    meshdir="/home/wang/serina/robot_lab/source/robot_lab/robot_lab/assets/descriptions/SEAG_2_URDF/meshes" 
     balanceinertia="true" 
     discardvisual="false" />
   </mujoco>

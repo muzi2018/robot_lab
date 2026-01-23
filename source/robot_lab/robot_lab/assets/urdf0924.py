@@ -24,7 +24,7 @@ URDF_0924_CFG = ArticulationCfg(
         # for urdf
         func=spawn_from_lazy_usd,
         usd_path=urdf_to_usd(  # type: ignore
-            file_path=f"/home/wang/workspace/robot_lab/source/robot_lab/robot_lab/assets/descriptions/urdf0924/urdf/urdf0924.urdf",
+            file_path=f"/home/wang/serina/robot_lab/source/robot_lab/robot_lab/assets/descriptions/urdf0924/urdf/urdf0924.urdf",
             merge_joints=True,
             fix_base=False,
         ),

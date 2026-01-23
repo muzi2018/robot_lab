@@ -26,7 +26,7 @@
             "name": "Python: Train Environment",
             "type": "debugpy",
             "request": "launch",
-            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-SEAG_2_URDF-v0", "--headless"],
+            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-SEAG_2_URDF-v0", "--max_iterations", "5000", "--headless", "--logger","wandb","--log_project_name","issacsim_casia"],
             "program": "${workspaceFolder}/scripts/reinforcement_learning/rsl_rl/train.py",
             "console": "integratedTerminal"
         },
@@ -34,7 +34,7 @@
             "name": "Python: Play Environment",
             "type": "debugpy",
             "request": "launch",
-            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-SEAG_2_URDF-v0", "--keyboard", "--checkpoint", "/home/wang/robot_lab/logs/rsl_rl/SEAG_2_URDF_flat/2026-01-12_23-59-49/model_14999.pt"],
+            "args" : ["--task", "RobotLab-Isaac-Velocity-Flat-SEAG_2_URDF-v0", "--keyboard", "--checkpoint", "/home/wang/serina/robot_lab/logs/rsl_rl/SEAG_2_URDF_flat/2026-01-22_15-43-59/model_4999.pt"],
             "program": "${workspaceFolder}/scripts/reinforcement_learning/rsl_rl/play.py",
             "console": "integratedTerminal"
         },
