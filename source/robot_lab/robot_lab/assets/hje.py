@@ -45,11 +45,11 @@ HJE_CFG = ArticulationCfg(
         ),
     ),
     init_state=ArticulationCfg.InitialStateCfg(
-        pos=(0.0, 0.0, 0.4),
+        pos=(0.0, 0.0, 0.6),
         joint_pos={
             ".*_HIP_JOINT": 0.0,
-            ".*_THIGH_JOINT": 0.8,
-            ".*_CALF_JOINT": -1.5,
+            ".*_THIGH_JOINT": 0.0,
+            ".*_CALF_JOINT": -0.6,
         },
         joint_vel={".*": 0.0},
     ),
