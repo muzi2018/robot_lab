@@ -98,8 +98,8 @@ SEAG_2_URDF_CFG = ArticulationCfg(
                 ".*_ankle_roll_Joint": 99,
             },
             velocity_limit_sim={
-                ".*_ankle_pitch_Joint": 146,
-                ".*_ankle_roll_Joint": 146,
+                ".*_ankle_pitch_Joint": 20,
+                ".*_ankle_roll_Joint": 20,
             },
             stiffness={
                 ".*_ankle_pitch_Joint": 50,
